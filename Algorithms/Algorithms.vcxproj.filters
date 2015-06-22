@@ -16,6 +16,9 @@
     <Filter Include="Source Files\Sorting">
       <UniqueIdentifier>{c977183c-1d03-4d9c-abd6-120f245b548c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Other">
+      <UniqueIdentifier>{c9d045e2-ce44-4124-9a26-5c7e546fc695}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -24,9 +27,15 @@
     <ClCompile Include="MergeSort.cpp">
       <Filter>Source Files\Sorting</Filter>
     </ClCompile>
+    <ClCompile Include="InversionCounter.cpp">
+      <Filter>Source Files\Other</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MergeSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InversionCounter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
