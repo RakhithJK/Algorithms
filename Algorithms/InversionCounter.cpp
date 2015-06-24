@@ -35,6 +35,7 @@ int InversionCounter::PerformMergeAndCount(vector<int> &arr, int lhs, int pivotI
 	i = 0;
 	j = 0;
 	key = lhs;
+	count = 0;
 
 	while (i < firstPart && j < rightPart)
 	{
@@ -59,6 +60,6 @@ int InversionCounter::CalculateInversions(vector<int> &arr, int lhs, int rhs)
 	if (lhs < rhs)
 	{
 		const int pivotIndex = lhs + (rhs - lhs) / 2;
-		return CalculateInversions(arr, lhs, pivotIndex) + CalculateInversions(arr, (pivotIndex + 1), rhs) + Merge(arr, lhs, pivotIndex, rhs);
+		return CalculateInversions(arr, lhs, pivotIndex) + CalculateInversions(arr, (pivotIndex + 1), rhs) + PerformMergeAndCount(arr, lhs, pivotIndex, rhs);
 	}
 }
