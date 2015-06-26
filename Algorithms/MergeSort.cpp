@@ -66,7 +66,7 @@ void MergeSort::SortArray(int arr[], int l, int r)
 {
 	if (l < r)
 	{
-		int m = l + (r - l) / 2; 
+		int m = l + (r - l) / 2;
 		SortArray(arr, l, m);
 		SortArray(arr, m + 1, r);
 		PerformArrayMerge(arr, l, m, r);
@@ -137,4 +137,3 @@ void MergeSort::SortVector(vector<int> &arr, int lhs, int rhs)
 		PerformVectorMerge(arr, lhs, pivotIndex, rhs);
 	}
 }
-

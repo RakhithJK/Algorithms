@@ -1,12 +1,12 @@
 #include <iostream>
 #include <vector>
-#include "QuickSort.h"
+#include "SelectionSort.h"
 
 using namespace std;
 
 int main()
 {
-	QuickSort * algorithm = new QuickSort();
+	SelectionSort * algorithm = new SelectionSort();
 	vector<int> items;
 	for (int i = 0; i < 3; i++)
 	{
@@ -15,7 +15,7 @@ int main()
 		items.push_back(temp);
 	}
 
-	algorithm->Sort(items, 0, items.size() - 1);
+	algorithm->Sort(items);
 
 	for (auto item : items)
 	{
