@@ -19,6 +19,12 @@
     <Filter Include="Source Files\Other">
       <UniqueIdentifier>{c9d045e2-ce44-4124-9a26-5c7e546fc695}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\String">
+      <UniqueIdentifier>{0f78eb72-df10-450d-9286-e5965c9df045}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\String">
+      <UniqueIdentifier>{696bcba8-f822-4115-91a1-fa164f25efa1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -39,6 +45,9 @@
     <ClCompile Include="SelectionSort.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tokenizer.cpp">
+      <Filter>Source Files\String</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MergeSort.h">
@@ -55,6 +64,9 @@
     </ClInclude>
     <ClInclude Include="SelectionSort.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tokenizer.h">
+      <Filter>Header Files\String</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

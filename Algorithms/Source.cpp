@@ -6,22 +6,20 @@ using namespace std;
 
 int main()
 {
-	SelectionSort * algorithm = new SelectionSort();
-	vector<int> items;
-	for (int i = 0; i < 3; i++)
+	int n, result = 0;
+	scanf_s("%d", &n);
+
+	for (int i = 1; i <= n; i++)
 	{
-		int temp;
-		cin >> temp;
-		items.push_back(temp);
+		int iterationResult = 1;
+		for (int j = 0; j < i; j++)
+		{
+			iterationResult *= i;
+		}
+		result += iterationResult;
 	}
 
-	algorithm->Sort(items);
-
-	for (auto item : items)
-	{
-		cout << item << endl;
-	}
-
+	printf("%d", result);
 
 	std::system("pause");
 }
