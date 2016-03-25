@@ -23,14 +23,14 @@ namespace LinkedListPractice.Impl
         public LinkedListNode<T> Head { get; private set; }
         public LinkedListNode<T> Tail { get; private set; }
     
-        public int Count { get; private set; } = 0;
-        public bool IsReadOnly { get; } = false;
+        public int Count              { get; private set; } = 0;
+        public bool IsReadOnly        { get; } = false;
 
         public void AddFront(LinkedListNode<T> nodeToAdd)
         {
             var headHolder = Head;
-            Head = nodeToAdd;
-            Head.Next = headHolder;
+            Head           = nodeToAdd;
+            Head.Next      = headHolder;
             Count++;
 
             if (Count == 1)
@@ -92,7 +92,7 @@ namespace LinkedListPractice.Impl
             return valueHolder;
         }
 
-        public  LinkedListNode<T>  Find(T value)
+        public  LinkedListNode<T> Find(T value)
         {
             return Find(Head, value);
         }
@@ -124,7 +124,7 @@ namespace LinkedListPractice.Impl
         public T RemoveFirst()
         {
             T valueHolder = default(T);
-            Head = Head.Next;
+            Head          = Head.Next;
             Count--;
             if (Count == 0)
             {
@@ -142,7 +142,7 @@ namespace LinkedListPractice.Impl
             {
                 if (previous != null && current.Value.Equals(value))
                 {
-                    valueHolder = current.Value;
+                    valueHolder   = current.Value;
                     previous.Next = current.Next;
                     if (current.Next == null)
                     {
@@ -156,7 +156,7 @@ namespace LinkedListPractice.Impl
                 }
                
                 previous = current;
-                current = current.Next;
+                current  = current.Next;
             }
 
             return valueHolder;
@@ -172,7 +172,7 @@ namespace LinkedListPractice.Impl
             {
                 if (previousNode != null && currentNode.Value.Equals(value))
                 {
-                    valueHolder = currentNode.Value;
+                    valueHolder       = currentNode.Value;
                     previousNode.Next = currentNode.Next;
 
                     if (currentNode.Next == null)
