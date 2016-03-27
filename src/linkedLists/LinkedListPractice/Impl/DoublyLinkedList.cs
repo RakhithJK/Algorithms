@@ -60,6 +60,45 @@
                 Count++;
             }
         }
+
+        public T PopFirst()
+        {
+            if (Count > 0)
+            {
+                Head = Head.Next;
+                Head.Previous = null;
+                Count--;
+                if (Count == 0)
+                {
+                    Tail = null;
+                }
+                else
+                {
+                    Head.Previous = null;
+                }
+                return Head.Value;
+            }
+            return default(T);
+        }
+        public T PopLast()
+        {
+            if (Count > 0)
+            {
+                if (Count == 1)
+                {
+                    Head = null;
+                    Tail = null;
+                }
+                else
+                {
+                    Tail.Previous.Next = null;
+                    Tail = Tail.Previous;
+                }
+                Count--;
+                return Tail != null ? Tail.Value : default(T);
+            }
+            return default(T);
+        }
         public void Clear()
         {
             Head = null;
