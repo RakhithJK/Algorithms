@@ -1,4 +1,6 @@
-﻿namespace LinkedListPractice.Impl
+﻿using System.Collections.Generic;
+
+namespace LinkedListPractice.Impl
 {
     public class DoublyLinkedListNode<T>
     {
@@ -15,15 +17,15 @@
             Next     = next;
         }
         public T Value { get; set; }
-        public DoublyLinkedListNode<T> Next { get; set; }
+        public DoublyLinkedListNode<T> Next     { get; set; }
         public DoublyLinkedListNode<T> Previous { get; set; }
     }
 
     public class DoublyLinkedList<T>
     {
-        private DoublyLinkedListNode<T> Head { get; set; }  
-        private DoublyLinkedListNode<T> Tail { get; set; }
-        public  int                     Count { get; private set; }     
+        private DoublyLinkedListNode<T> Head   { get; set; }  
+        private DoublyLinkedListNode<T> Tail   { get; set; }
+        public  int                     Count  { get; private set; }     
 
         public void AddFirst(DoublyLinkedListNode<T> nodeToAdd)
         {
@@ -98,6 +100,39 @@
                 return Tail != null ? Tail.Value : default(T);
             }
             return default(T);
+        }
+
+        public T Remove(DoublyLinkedListNode<T> currentNode, T valueToRemove)
+        {
+            if (currentNode == null)
+            {
+                return default(T);
+            }
+            if (currentNode.Value.Equals(valueToRemove))
+            {
+                var previousNode = currentNode.Previous;
+                var nextNode     = currentNode.Next;
+
+                previousNode.Next = nextNode;
+                Count--;
+                return currentNode.Value;
+            }
+            return Remove(currentNode.Next, valueToRemove);
+        }
+
+        public IReadOnlyCollection<T> Traverse()
+        {
+            var valuesHolder = new List<T>();
+            TraverseRecursively(Head, valuesHolder);
+            return valuesHolder.AsReadOnly();
+        }
+        private void TraverseRecursively(DoublyLinkedListNode<T> currentNode, IList<T> valuesHolder)
+        {
+            if(currentNode != null)
+            {
+                valuesHolder.Add(currentNode.Value);
+                TraverseRecursively(currentNode.Next, valuesHolder);
+            }
         }
         public void Clear()
         {
