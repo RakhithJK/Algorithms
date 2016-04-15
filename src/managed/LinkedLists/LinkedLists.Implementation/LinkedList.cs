@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace LinkedListPractice.Impl
+namespace LinkedLists.Implementation
 {
     public class LinkedListNode<T>
     {

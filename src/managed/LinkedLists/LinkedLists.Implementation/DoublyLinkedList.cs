@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace LinkedListPractice.Impl
+namespace LinkedLists.Implementation
 {
     public class DoublyLinkedListNode<T>
     {
