@@ -41,5 +41,8 @@
         {
             return (Count > 0) ? Head.Value : default(T);
         }
+
+        public bool IsEmpty => Count > 0;
+        public void Clear() => Head = null;
     }
 }
