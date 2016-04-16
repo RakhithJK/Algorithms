@@ -7,7 +7,9 @@ My personal algorithms and data structures practice. Planning to implement the m
 * Doubly-linked list
 * Sorting algorithms
 * "Ad hoc" problems (Fibonacci sequence, simple string parsing, ...)
+* Stack, Math expression calculator (infix to postfix conversion)
 
 ### Will be implemented
-* Stack and Queue
-* Math expression calculator
+* Queue
+* Trees
+* Graphs
