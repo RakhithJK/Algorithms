@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{449568AC-8E98-4337-AAB4-F0409A36E89B}</ProjectGuid>
+    <ProjectGuid>{EBD3C170-2FE1-4C66-8F13-AA7EC72BAE5C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LinkedLists.Implementation</RootNamespace>
-    <AssemblyName>LinkedLists.Implementation</AssemblyName>
+    <RootNamespace>MathExpression.Implementation</RootNamespace>
+    <AssemblyName>MathExpression.Implementation</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,9 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DoublyLinkedList.cs" />
-    <Compile Include="LinkedList.cs" />
+    <Compile Include="ExpressionCalculator.cs" />
+    <Compile Include="Ex\EnumerableEx.cs" />
+    <Compile Include="Ex\StackEx.cs" />
+    <Compile Include="Ex\StringEx.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DataStructures\DataStructures.Implementation\DataStructures.Implementation.csproj">
+      <Project>{a49ad4ac-ad64-47f7-b7ca-930a71abd817}</Project>
+      <Name>DataStructures.Implementation</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

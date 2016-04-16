@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackAndQueue.Implementation", "StackAndQueue.Implementation\StackAndQueue.Implementation.csproj", "{949F7CCC-7E24-4BD1-9C23-1FFF7E4F8866}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures.Implementation", "DataStructures.Implementation\DataStructures.Implementation.csproj", "{A49AD4AC-AD64-47F7-B7CA-930A71ABD817}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathExpression.Implementation", "MathExpression.Implementation\MathExpression.Implementation.csproj", "{EBD3C170-2FE1-4C66-8F13-AA7EC72BAE5C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathExpression.Implementation", "..\MathExpression\MathExpression.Implementation\MathExpression.Implementation.csproj", "{EBD3C170-2FE1-4C66-8F13-AA7EC72BAE5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathExpression.Tests", "MathExpression.Tests\MathExpression.Tests.csproj", "{4C26C909-5E81-4364-8B17-90A2EEF0DAFD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathExpression.Tests", "..\MathExpression\MathExpression.Tests\MathExpression.Tests.csproj", "{4C26C909-5E81-4364-8B17-90A2EEF0DAFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{949F7CCC-7E24-4BD1-9C23-1FFF7E4F8866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{949F7CCC-7E24-4BD1-9C23-1FFF7E4F8866}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{949F7CCC-7E24-4BD1-9C23-1FFF7E4F8866}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{949F7CCC-7E24-4BD1-9C23-1FFF7E4F8866}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A49AD4AC-AD64-47F7-B7CA-930A71ABD817}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A49AD4AC-AD64-47F7-B7CA-930A71ABD817}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A49AD4AC-AD64-47F7-B7CA-930A71ABD817}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A49AD4AC-AD64-47F7-B7CA-930A71ABD817}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EBD3C170-2FE1-4C66-8F13-AA7EC72BAE5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EBD3C170-2FE1-4C66-8F13-AA7EC72BAE5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBD3C170-2FE1-4C66-8F13-AA7EC72BAE5C}.Release|Any CPU.ActiveCfg = Release|Any CPU

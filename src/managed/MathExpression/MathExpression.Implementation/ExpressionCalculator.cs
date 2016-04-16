@@ -3,18 +3,14 @@ using MathExpression.Implementation.Ex;
 
 namespace MathExpression.Implementation
 {
-    using System;
-    using System.Linq;
-    using customStack = StackAndQueue.Implementation;
+    using dataStructures = DataStructures.Implementation;
     public class ExpressionCalculator
     {
         public ExpressionCalculator()
         {
-            _operatorsStack    = new customStack::Stack<char>();
-            _operandsStack     = new customStack::Stack<int>();
+            _operatorsStack    = new dataStructures::Stack<char>();
+            _operandsStack     = new dataStructures::Stack<int>();
             _expressionBuilder = new List<char>();
-
-            Enumerable.Range(0, 10).ForEach(digit => _digits.Add((char)digit, digit));
         }
 
         private bool IsOperator(char maybeOperator)
@@ -144,10 +140,11 @@ namespace MathExpression.Implementation
 
         public int Calculate(string expressionAsString) => EvaluatePostfixExpression(CalculatePostfixExpression(PrepareExpression(expressionAsString)));
 
-        private readonly customStack::Stack<char> _operatorsStack;
-        private readonly customStack::Stack<int>  _operandsStack;
-        private readonly List<char>               _expressionBuilder;
-        private readonly Dictionary<char, int>    _precedence = new Dictionary<char, int>()
+        private readonly dataStructures::Stack<char> _operatorsStack;
+        private readonly dataStructures::Stack<int>  _operandsStack;
+
+        private readonly List<char>                  _expressionBuilder;
+        private readonly Dictionary<char, int>       _precedence = new Dictionary<char, int>()
         {
             { Operators.Multiplier, 3 },
             { Operators.Divider,    3 },
@@ -156,7 +153,6 @@ namespace MathExpression.Implementation
             { Operators.Minus,      2 },
             { Parenthesis.Left,     1 }
         };
-        private readonly Dictionary<char, int> _digits = new Dictionary<char, int>();
         public static class Operators
         {
             public const char Plus       = '+';

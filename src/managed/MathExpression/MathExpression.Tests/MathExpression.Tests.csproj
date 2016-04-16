@@ -61,7 +61,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CalculatorTests.cs" />
-    <Compile Include="Ex\EnumerableEx.cs" />
     <Compile Include="InfixToPostfixTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

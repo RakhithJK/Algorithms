@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 
-namespace LinkedLists.Implementation
+namespace DataStructures.Implementation.Lists
 {
     public class DoublyLinkedListNode<T>
     {
@@ -124,7 +126,7 @@ namespace LinkedLists.Implementation
         {
             var valuesHolder = new List<T>();
             TraverseRecursively(Head, valuesHolder);
-            return valuesHolder.AsReadOnly();
+            return new ReadOnlyCollection<T>(valuesHolder);
         }
         private void TraverseRecursively(DoublyLinkedListNode<T> currentNode, IList<T> valuesHolder)
         {

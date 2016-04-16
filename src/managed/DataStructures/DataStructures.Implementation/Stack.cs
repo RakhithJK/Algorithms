@@ -1,4 +1,4 @@
-﻿namespace StackAndQueue.Implementation
+﻿namespace DataStructures.Implementation
 {
     public class StackElement<T>
     {

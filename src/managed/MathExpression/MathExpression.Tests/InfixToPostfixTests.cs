@@ -2,7 +2,6 @@
 using System.Linq;
 using MathExpression.Implementation;
 using MathExpression.Implementation.Ex;
-using MathExpression.Tests.Ex;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MathExpression.Tests
