@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExpressionCalculator.cs" />
+    <Compile Include="Ex\EnumerableEx.cs" />
     <Compile Include="Ex\StackEx.cs" />
     <Compile Include="Ex\StringEx.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

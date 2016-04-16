@@ -3,13 +3,18 @@ using MathExpression.Implementation.Ex;
 
 namespace MathExpression.Implementation
 {
+    using System;
+    using System.Linq;
     using customStack = StackAndQueue.Implementation;
     public class ExpressionCalculator
     {
         public ExpressionCalculator()
         {
             _operatorsStack    = new customStack::Stack<char>();
+            _operandsStack     = new customStack::Stack<int>();
             _expressionBuilder = new List<char>();
+
+            Enumerable.Range(0, 10).ForEach(digit => _digits.Add((char)digit, digit));
         }
 
         private bool IsOperator(char maybeOperator)
@@ -20,18 +25,45 @@ namespace MathExpression.Implementation
                    maybeOperator == Operators.Divider    ||
                    maybeOperator == Operators.Power;
         }
-
         private bool IsRightParenthesis(char maybeRightParenthesis) => maybeRightParenthesis == Parenthesis.Right;
         private bool IsLeftParenthesis(char maybeLeftParenthesis) => maybeLeftParenthesis == Parenthesis.Left;
-
         private bool IsNumber(char maybeNumber)
         {
             int number;
             return int.TryParse(maybeNumber.ToString(), out number);
         }
 
-        public char[] PrepareExpression(string expressionAsString) => expressionAsString.RemoveWhitespaces().ToCharArray();
+        private int Character2Number(char maybeNumber)
+        {
+            int number;
+            int.TryParse(maybeNumber.ToString(), out number);
+            return number;
+        }
+        private int Add(int x, int y)                          => x + y;
+        private int Subtract(int x, int y)                     => x - y;
+        private int Multiply(int x, int y)                     => x * y;
+        private int Power(int x, int y, int currentDegree = 0) => currentDegree < y ? Power(x*x, y, ++currentDegree) : x;
+        private int Divide(int x, int y)                       => x / y;
+        private int Calculate(int x, int y, char operation)
+        {
+            switch (operation)
+            {
+                case Operators.Plus:
+                    return Add(x, y);
+                case Operators.Minus:
+                    return Subtract(x, y);
+                case Operators.Multiplier:
+                    return Multiply(x, y);
+                case Operators.Power:
+                    return Power(x, y);
+                case Operators.Divider:
+                    return Divide(x, y);
+                default:
+                    return 0;
+            }
+        }
 
+        public char[] PrepareExpression(string expressionAsString) => expressionAsString.RemoveWhitespaces().ToCharArray();
         public char[] CalculatePostfixExpression(char[] expressionAsArray)
         {
             _operatorsStack.Clear();
@@ -84,8 +116,36 @@ namespace MathExpression.Implementation
 
             return _expressionBuilder.ToArray();
         }
+        public int EvaluatePostfixExpression (char [] postfixExpression)
+        {
+            _operandsStack.Clear();
+
+            foreach (var character in postfixExpression)
+            {
+                if(IsNumber(character))
+                {
+                    _operandsStack.Push(Character2Number(character));
+                }
+                else if(IsOperator(character))
+                {
+                    if(_operandsStack.Count >= 2)
+                    {
+                        int y = _operandsStack.Pop();
+                        if(!_operandsStack.IsEmpty())
+                        {
+                            int x = _operandsStack.Pop();
+                            _operandsStack.Push(Calculate(x, y, character));
+                        }
+                    }
+                }
+            }
+            return _operandsStack.Pop();
+        }
+
+        public int Calculate(string expressionAsString) => EvaluatePostfixExpression(CalculatePostfixExpression(PrepareExpression(expressionAsString)));
 
         private readonly customStack::Stack<char> _operatorsStack;
+        private readonly customStack::Stack<int>  _operandsStack;
         private readonly List<char>               _expressionBuilder;
         private readonly Dictionary<char, int>    _precedence = new Dictionary<char, int>()
         {
@@ -95,8 +155,8 @@ namespace MathExpression.Implementation
             { Operators.Plus,       2 },
             { Operators.Minus,      2 },
             { Parenthesis.Left,     1 }
-        }; 
-
+        };
+        private readonly Dictionary<char, int> _digits = new Dictionary<char, int>();
         public static class Operators
         {
             public const char Plus       = '+';
