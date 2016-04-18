@@ -41,6 +41,11 @@
             return headValue;
         }
 
+        public void Clear()
+        {
+            Head = null;
+            Tail = null;
+        }
         public bool IsEmpty => Count > 0;
 
         private QueueElement<T> Head    { get; set; } 
