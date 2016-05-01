@@ -8,6 +8,7 @@ My personal algorithms and data structures practice. Planning to implement the m
 * Sorting algorithms
 * "Ad hoc" problems (Fibonacci sequence, simple string parsing, ...)
 * Queue, Stack, Math expression calculator (infix to postfix conversion, calculating postfix expression)
+* Towers of Hanoi problem
 
 ### Will be implemented
 * Tries structures and common algorithms
