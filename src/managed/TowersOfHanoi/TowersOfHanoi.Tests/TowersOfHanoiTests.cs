@@ -12,7 +12,7 @@ namespace TowersOfHanoi.Tests
         {
             foreach (var pair in _predefinedDictionary)
             {
-                _solutionsDictionary.Add(pair.Key, TowersOfHanoiSolver.Solve(pair.Key, 's', 'd'));
+                _solutionsDictionary.Add(pair.Key, TowersOfHanoiSolver.Solve(pair.Key, 'S', 'D'));
             }
             foreach (var pair in _solutionsDictionary)
             {
