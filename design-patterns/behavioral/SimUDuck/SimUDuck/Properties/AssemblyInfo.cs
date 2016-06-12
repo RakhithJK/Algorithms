@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DesignPatterns.Creational")]
+[assembly: AssemblyTitle("SimUDuck")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DesignPatterns.Creational")]
+[assembly: AssemblyProduct("SimUDuck")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("967fb087-224e-449e-8ff3-c93731d3023e")]
+[assembly: Guid("1447b28e-2226-4cf0-951d-70fc4fc66b07")]
 
 // Version information for an assembly consists of the following four values:
 //
