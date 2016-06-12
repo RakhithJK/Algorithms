@@ -6,10 +6,13 @@ Repository is simply named Algorithms, but there will be also a design patterns 
 * Singly-linked list
 * Doubly-linked list
 * Sorting algorithms
-* "Ad hoc" problems (Fibonacci sequence, simple string parsing, ...)
+* "Ad hoc" problems (Fibonacci sequence, simple string parsing, some COCI rounds tasks - problems )
 * Queue, Stack, Math expression calculator (infix to postfix conversion, calculating postfix expression)
 * Towers of Hanoi problem
-* Directory Tree, BFS, DFS traversal, 
+* Directory Tree, BFS, DFS traversal
+* Minimal average subarray
 
 ### Will be implemented
 * Graphs, graph algorithms and common algorithms like shortest/longest paths, graphs, traversal algorithms (DFS, BFS)
+* Interesting COCI (Croatian open informatics competition) problems
+* Common DesignPatterns like AbstractFactory, Command, Strategy, Decorator, Iterator, Singleton and ...
