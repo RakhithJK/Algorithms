@@ -1,9 +1,5 @@
 # Design Patterns Section
 All design patterns will be implemented in C#. They are grouped in 'Gang Of Four way'.
-### Design Patterns by 'type'
-* Creational
-* Structural
-* Behavioral
 
 ### Currently implemented
 * Creational : 
