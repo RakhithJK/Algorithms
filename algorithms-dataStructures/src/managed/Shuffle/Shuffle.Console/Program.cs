@@ -22,7 +22,7 @@ namespace Shuffle.Console
         static void ShuffleNListsWithNElements(int numberOfListsAndElements)
         {
             var watch = Stopwatch.StartNew();
-            Enumerable.Range(2, numberOfListsAndElements)
+            Enumerable.Range(1, numberOfListsAndElements)
              .ToList()
              .ForEach(numberOfListElements =>
              {
@@ -35,15 +35,16 @@ namespace Shuffle.Console
 
             watch.Stop();
             console.WriteLine($"Process took {watch.ElapsedMilliseconds} ms!");
-
-            console.WriteLine(!TestResults.All(_ => _) ? "All lists shuffled correctly." : "Tests failed!");
+            console.WriteLine(!TestResults.All(_ => _) || TestResults.Count == 1 ? "All lists shuffled correctly." : "Tests failed!");
         }
 
         static void ShuffleHugeList()
         {
-            console.WriteLine($"Testing shuffling with list of 5000000 elements.");
+            console.WriteLine($"Testing shuffling with a list of n elements : ");
+            int numberOfListsAndElement = int.Parse(console.ReadLine());
+
             var watch = Stopwatch.StartNew();
-            var list = Enumerable.Range(0, 5000000).ToList(); // 5 million elements
+            var list = Enumerable.Range(1, numberOfListsAndElement).ToList();
             var beforeListArray = list.ToArray();
             list.Shuffle(shuffleType: ShuffleType.AllElementsShouldBeOnDifferentPositions);
 

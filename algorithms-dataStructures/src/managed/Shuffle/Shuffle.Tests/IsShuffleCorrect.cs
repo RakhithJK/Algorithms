@@ -14,7 +14,7 @@ namespace Shuffle.Tests
                 .ToList()
                 .ForEach(numberOfListElements =>
                 {
-                    var list = Enumerable.Range(0, numberOfListElements + 1).ToList();
+                    var list = Enumerable.Range(1, numberOfListElements).ToList();
                     var beforeListArray = list.ToArray();     
                     list.Shuffle(shuffleType: ShuffleType.AllElementsShouldBeOnDifferentPositions);
                     Debug.WriteLine(list.SequenceEqual(beforeListArray));
@@ -25,7 +25,7 @@ namespace Shuffle.Tests
         [TestMethod]
         public void ShuffleHugeList()
         {
-            var list = Enumerable.Range(0, 500000).ToList(); // a half million elements 
+            var list = Enumerable.Range(1, 500000).ToList(); // a half million elements 
             var beforeListArray = list.ToArray();
             list.Shuffle(shuffleType: ShuffleType.AllElementsShouldBeOnDifferentPositions);
             Debug.WriteLine(list.SequenceEqual(beforeListArray));
