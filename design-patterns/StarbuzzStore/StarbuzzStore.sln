@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarbuzzStore", "StarbuzzStore\StarbuzzStore.csproj", "{1E580405-2555-40CD-BDC7-BF29BC068080}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarbuzzStore.Domain", "StarbuzzStore.Domain\StarbuzzStore.Domain.csproj", "{97EA1FB4-1924-4981-8367-D2D08DFF87F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E580405-2555-40CD-BDC7-BF29BC068080}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E580405-2555-40CD-BDC7-BF29BC068080}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E580405-2555-40CD-BDC7-BF29BC068080}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E580405-2555-40CD-BDC7-BF29BC068080}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97EA1FB4-1924-4981-8367-D2D08DFF87F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97EA1FB4-1924-4981-8367-D2D08DFF87F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97EA1FB4-1924-4981-8367-D2D08DFF87F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97EA1FB4-1924-4981-8367-D2D08DFF87F9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
