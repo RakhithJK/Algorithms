@@ -2,12 +2,13 @@
 All design patterns will be implemented in C#.
 
 ### Currently implemented
-* Strategy      : 'SimUDuck'
-* Observer      : 'Weather'
-* Decorator     : 'StarbuzzStore'
-* FactoryMethod : 'PizzaStore'
+* Strategy        : 'SimUDuck'
+* Observer        : 'Weather'
+* Decorator       : 'StarbuzzStore'
+* FactoryMethod   : 'PizzaStore'
+* AbstractFactory : 'PizzaStore'
 
-### Design Patterns rules
+### OO design quotes
 * "Identify the aspects of your 
 application that vary and separate 
 them from what stays the same."
@@ -19,3 +20,5 @@ between objects that interact."
 * "Classes should be open 
 for extension, but closed for 
 modification."
+* "Depend upon abstractions. Do not 
+depend upon concrete classes."

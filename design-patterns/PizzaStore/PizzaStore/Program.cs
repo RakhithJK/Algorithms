@@ -8,8 +8,8 @@ namespace PizzaStore
     {
         static void Main(string[] args)
         {
-            Stores.PizzaStore nyStore = new NewYorkPizzaStore();
-            Stores.PizzaStore chicagoStore = new ChicagoPizzaStore();
+            Stores.IPizzaStore nyStore = new NewYorkPizzaStore();
+            Stores.IPizzaStore chicagoStore = new ChicagoPizzaStore();
 
             Pizza pizza = nyStore.Order(type: PizzaType.Cheese);
             Console.WriteLine($"Ethan ordered a {pizza.Name}");

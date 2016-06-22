@@ -3,7 +3,12 @@ using PizzaStore.Pizzas;
 
 namespace PizzaStore.Stores
 {
-    public abstract class PizzaStore
+    public interface IPizzaStore
+    {
+        Pizza Order(PizzaType type);
+        Pizza Create(PizzaType type);
+    }
+    public abstract class PizzaStore : IPizzaStore
     {
         public Pizza Order(PizzaType type)
         {
@@ -15,21 +20,9 @@ namespace PizzaStore.Stores
             return pizza;
         }
 
-        protected virtual Pizza Create(PizzaType type)
+        public virtual Pizza Create(PizzaType type)
         {
-            switch (type)
-            {
-                case PizzaType.Cheese:
-                    return new CheesePizza();
-                case PizzaType.Pepperoni:
-                    return new PepperoniPizza();
-                case PizzaType.Veggie:
-                    return new VeggiePizza();
-                case PizzaType.Clam:
-                    return new ClamPizza();
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
-            }
+            throw new NotImplementedException();
         }
     }
 }
