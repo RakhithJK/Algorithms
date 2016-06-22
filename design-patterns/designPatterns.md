@@ -2,9 +2,10 @@
 All design patterns will be implemented in C#.
 
 ### Currently implemented
-* Strategy  : 'SimUDuck'
-* Observer  : 'Weather'
-* Decorator : 'StarbuzzStore'
+* Strategy      : 'SimUDuck'
+* Observer      : 'Weather'
+* Decorator     : 'StarbuzzStore'
+* FactoryMethod : 'PizzaStore'
 
 ### Design Patterns rules
 * "Identify the aspects of your 
