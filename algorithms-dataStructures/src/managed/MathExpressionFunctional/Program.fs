@@ -41,14 +41,14 @@ let convertInfixExpressionToPostfix (expression: string) =
          convertMultipleWhitespacesToSingle
 
 let evaluatePostfixExpression (expression : string) =
-    let solveExpressionPart results currentResult =  
-     match (currentResult, results) with
+    let solveExpressionPart results expressionElement =  
+     match (expressionElement, results) with
      | "+", y::x::previousResults -> (x + y)::previousResults
      | "-", y::x::previousResults -> (x - y)::previousResults 
      | "*", y::x::previousResults -> (x * y)::previousResults
      | "/", y::x::previousResults -> (x / y)::previousResults
-     | _ -> (float currentResult)::results
-    (expression.Split(' ') |> Seq.map string |> Seq.fold solveExpressionPart []) |> List.head
+     | _ -> (float expressionElement)::results
+    (expression.Split(' ') |> Seq.fold solveExpressionPart []) |> List.head
 
 [<EntryPoint>]
 let main argv = 
