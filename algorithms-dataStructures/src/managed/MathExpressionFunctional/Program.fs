@@ -4,8 +4,8 @@ open System.Text.RegularExpressions
 open System.Collections.Generic
 
 let convertInfixExpressionToPostfix (expression: string) =
-    let mutable operatorsStack           = new Stack<string>()
-    let mutable postfixExpressionBuilder = new StringBuilder()
+    let operatorsStack           = new Stack<string>()
+    let postfixExpressionBuilder = new StringBuilder()
 
     let isNumber           maybeNumber       = Int32.TryParse maybeNumber
     let isOperator         maybeOperator     = maybeOperator = "+" || maybeOperator = "-" || maybeOperator = "*" || maybeOperator = "/"
