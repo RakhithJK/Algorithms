@@ -9,26 +9,26 @@ type sound           = Rest | Tone of note : note * octave : octave
 type length          = { fraction : measureFraction; isExtended : bool }
 type token           = { length : length; sound : sound }
 
-let parse_measureFraction = 
+let private parse_measureFraction = 
     (stringReturn "2"  Half)            <|> 
     (stringReturn "4"  Quarter)         <|>
     (stringReturn "8"  Eight)           <|>
     (stringReturn "16" Sixteen)         <|>
     (stringReturn "32" Thirtysecond)
-let parse_extended_measureFraction = (stringReturn "." true) <|> (stringReturn "" false)
-let parse_length = 
+let private parse_extended_measureFraction = (stringReturn "." true) <|> (stringReturn "" false)
+let private parse_length = 
     pipe2 
         parse_measureFraction
         parse_extended_measureFraction
         (fun parsedFraction parsedIsExtended -> { fraction = parsedFraction; isExtended = parsedIsExtended })
          
-let parse_nonSharpNote = 
+let private parse_nonSharpNote = 
     anyOf "be" |>> (function 
     | 'b' -> B
     | 'e' -> E
     | unknown -> failwith <| string unknown)
-let parse_sharp = (stringReturn "#" true) <|> (stringReturn "" false)
-let parse_sharpNote =
+let private parse_sharp = (stringReturn "#" true) <|> (stringReturn "" false)
+let private parse_sharpNote =
     pipe2
         parse_sharp
         (anyOf "acdefg")
@@ -47,16 +47,16 @@ let parse_sharpNote =
             | (_, unknown) -> failwith <| string unknown 
         )
 
-let parse_note = parse_nonSharpNote <|> parse_sharpNote
-let parse_octave = anyOf "123" |>> (function
+let private parse_note = parse_nonSharpNote <|> parse_sharpNote
+let private parse_octave = anyOf "123" |>> (function
     | '1' -> One
     | '2' -> Two
     | '3' -> Three
     | unknown -> failwith <| string unknown)
 
-let parse_tone  = pipe2 parse_note parse_octave (fun parsedNote parsedOctave -> Tone(parsedNote, parsedOctave))
-let parse_rest  = stringReturn "-" Rest
-let parse_token = pipe2 parse_length (parse_rest <|> parse_tone) (fun length tone -> { length = length; sound = tone })
+let private parse_tone  = pipe2 parse_note parse_octave (fun parsedNote parsedOctave -> Tone(parsedNote, parsedOctave))
+let private parse_rest  = stringReturn "-" Rest
+let private parse_token = pipe2 parse_length (parse_rest <|> parse_tone) (fun length tone -> { length = length; sound = tone })
 
-let parse_allTokens         = sepBy parse_token (pstring " ")
+let private parse_allTokens = sepBy parse_token (pstring " ")
 let parse_composition input = run parse_allTokens input
