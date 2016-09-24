@@ -7,10 +7,11 @@ Repository is simply named Algorithms, but there will be also a design patterns 
 * Doubly-linked list
 * Sorting algorithms
 * "Ad hoc" problems (Fibonacci sequence, simple string parsing, some COCI rounds tasks - problems )
-* Queue, Stack, Math expression calculator (infix to postfix conversion, calculating postfix expression)
+* Queue, Stack, Math expression calculator (infix to postfix conversion, calculating postfix expression in imperative and functional way)
 * Towers of Hanoi problem
 * Directory Tree, BFS, DFS traversal
 * Minimal average subarray
+* NokiaComposer parser and sound producer
 
 ### Will be implemented
 * Graphs, graph algorithms and common algorithms like shortest/longest paths, graphs, traversal algorithms (DFS, BFS)
