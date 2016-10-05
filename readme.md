@@ -12,6 +12,7 @@ Repository is simply named Algorithms, but there will be also a design patterns 
 * Directory Tree, BFS, DFS traversal
 * Minimal average subarray
 * NokiaComposer parser and sound producer
+* Search Query parser based on simple grammar
 
 ### Will be implemented
 * Graphs, graph algorithms and common algorithms like shortest/longest paths, graphs, traversal algorithms (DFS, BFS)
