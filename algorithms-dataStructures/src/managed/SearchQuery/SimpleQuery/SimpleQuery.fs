@@ -1,5 +1,5 @@
-﻿#r "FParsecCS.dll"
-#r "FParsec.dll"
+﻿module SimpleQuery
+
 open FParsec
 open System.Text.RegularExpressions
 
