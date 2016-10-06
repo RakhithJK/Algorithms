@@ -1,9 +1,8 @@
-﻿module SimpleQuery
+﻿module SimpleQuery.Querying
 
 open FParsec
 open System.Text.RegularExpressions
 
-let queryToParse = " ministar    vlaho  a   , :str=asd   ,     helikopter    , :autor=Vojko V  , :od=12.2.2015, asdasd asda, :do=15.3.2015  "
 let removeWhitespacesBeforeDelimiter (query : string) = query.Replace(" , ", ",")
 let sanitizeString (query : string)                   = removeWhitespacesBeforeDelimiter (Regex.Replace(query.Trim(), @"\s+", " "))
 
@@ -43,4 +42,4 @@ let parseQueryPart = parseExplicitQueryPart <|> parseImplicitQueryTerms
 
 let parseQuery = sepBy parseQueryPart parseQuerySplitter
 
-let parse = run parseQuery (sanitizeString queryToParse) 
+let parse (queryToParse) = run parseQuery (sanitizeString queryToParse) 
