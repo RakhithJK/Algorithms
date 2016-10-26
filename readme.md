@@ -13,6 +13,7 @@ Repository is simply named Algorithms, but there will be also a design patterns 
 * Minimal average subarray
 * NokiaComposer parser and sound producer
 * Search Query parser based on simple grammar
+* Let computer generate random number in [0,100] and develop algorithm which guesses generated number in less or equal to 7 steps
 
 ### Will be implemented
 * Graphs, graph algorithms and common algorithms like shortest/longest paths, graphs, traversal algorithms (DFS, BFS)
