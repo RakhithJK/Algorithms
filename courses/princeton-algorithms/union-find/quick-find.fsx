@@ -1,9 +1,9 @@
 type graph(verticesCount) = 
     let mutable connectionsHolder  = Array.init verticesCount (fun index -> index) 
     let mutable modificationsCount = 0 
-    member this.elementsCount     = verticesCount
-    member this.areConnected p q  = connectionsHolder.[p] = connectionsHolder.[q]
-    member this.connect      p q  = 
+    member this.elementsCount      = verticesCount
+    member this.areConnected p q   = connectionsHolder.[p] = connectionsHolder.[q]
+    member this.connect      p q   = 
         let performConnecting = 
             let pValue = connectionsHolder.[p]
             let qValue = connectionsHolder.[q]
@@ -18,7 +18,6 @@ type graph(verticesCount) =
                 )
             modificationsCount <- modificationsCount + 1
             connectionsHolder
-
 
         let arePandQConnected = this.areConnected p q
         match arePandQConnected with
