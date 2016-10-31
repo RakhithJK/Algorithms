@@ -9,7 +9,6 @@ type graph(verticesCount) =
             | index when index = value -> value
             | _ -> searchForRootRecursively connectionsHolder.[maybeRootIndex]
         searchForRootRecursively vertexIndex
-
     member this.areConnected p q = this.findVertexRoot p = this.findVertexRoot q
     member this.connect      p q = 
         let performConnection =
