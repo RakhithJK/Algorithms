@@ -98,6 +98,4 @@ type percolation (n) =
     member this.openRandomSite() = 
         let randomSite = { rowIndex = generator.Next(0, n - 1); columnIndex = generator.Next(0, n - 1) }
         this.openSite randomSite
-        printfn "%A" randomSite
-        grid
     member this.doesPercolate = graph.areConnected virtualTopElementId virtualBottomElementId
