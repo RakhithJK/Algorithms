@@ -16,7 +16,11 @@ Repository is simply named Algorithms, but there will be also a design patterns 
 * Let computer generate random number in [0,100] and develop algorithm which guesses generated number in less or equal to 7 steps
 * Dynamic connectivity problem -> union find algorithms
 
+### Algorithm and DS Competition solutions
+* COCI 2016 round 1 Jetpack task
+* COCI 2016 round 2 first six tasks
+
 ### Will be implemented
 * Graphs, graph algorithms and common algorithms like shortest/longest paths, graphs, traversal algorithms (DFS, BFS)
-* Interesting COCI (Croatian open informatics competition) problems
+* Interesting COCI (Croatian open informatics competition) or Codewars problems
 * Common DesignPatterns like AbstractFactory, Command, Strategy, Decorator, Iterator, Singleton and ...
