@@ -16,6 +16,7 @@ Repository is simply named Algorithms, but there will be also a design patterns 
 * Search Query parser based on simple grammar
 * Let computer generate random number in [0,100] and develop algorithm which guesses generated number in less or equal to 7 steps
 * Dynamic connectivity problem -> various union find algorithms
+* Collinear points Bruteforce and Optimized(n2 log n) solution
 
 ### Algorithm and DS Competition solutions
 * COCI 2016 round 1 Jetpack task
