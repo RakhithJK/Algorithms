@@ -71,5 +71,6 @@ let travel (instructions : Instruction[]) =
    
 
 let destination = travel instructions
-
-printfn "%A" destination
+let calculateTaxicabDistance destination = Math.Abs destination.X + Math.Abs destination.Y
+let distance = calculateTaxicabDistance destination
+printfn "%A" distance
