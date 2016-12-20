@@ -1,13 +1,24 @@
 #include<iostream>
 #include<string>
 #include<vector>
+#include<map>
 #include<algorithm>
 
 using namespace std;
 
-vector<string> words;
+vector<int> solutions;
 
-bool rimujuLiSe(const string& kraca, const string& dulja) {
+vector<string> was;
+vector<string> words;
+map<int, vector<string>> wordsGroupedByLength;
+
+
+bool wasBefore(const string& word)
+{
+	return find(was.begin(), was.end(), word) != was.end();
+}
+
+bool areCompatible(const string& kraca, const string& dulja) {
 	auto postojiLiZajednickiSufiks1 = dulja.find(kraca);
 	auto sameLength = kraca.size() == dulja.size();
 
@@ -20,7 +31,8 @@ bool rimujuLiSe(const string& kraca, const string& dulja) {
 	}
 
 
-	auto kracaBezPrvog = kraca;
+	auto temp = kraca;
+	auto kracaBezPrvog = temp;
 	kracaBezPrvog.erase(0, 1);
 	auto postojiLiZajednickiSufiks2 = dulja.find(kracaBezPrvog);
 
@@ -33,85 +45,89 @@ bool rimujuLiSe(const string& kraca, const string& dulja) {
 	return false;
 }
 
-vector<string> rjesenja;
-vector<string> bio; // mozda zatriba
-void konstruirajRekurzivno(const string& trenutnaRijec) {
-	vector<string> rijeciIsteDuljineKaoTrenutna;
-	vector<string> rijeciVeceza1OdTrenutna;
-
-	bool bioPrije = static_cast<int>(count(bio.begin(), bio.end(), trenutnaRijec)) == 1;
-	if(bioPrije)
+int substringLength = 0;
+void constructSubstringRecursively(const string& currentWord) {
+	if (wasBefore(currentWord))
 		return;
 
-	rjesenja.push_back(trenutnaRijec);
-	bio.push_back(trenutnaRijec);
+	was.push_back(currentWord);
+	substringLength++;
 
-	for_each(words.begin(), words.end(), [&](string& word)
+	auto areAnyWordsSameLengthAsCurrent = wordsGroupedByLength.find(currentWord.length()) != wordsGroupedByLength.end();
+	auto areAnyWords1LongerThanCurrent  = wordsGroupedByLength.find(currentWord.length() + 1) != wordsGroupedByLength.end();
+	
+	if(!areAnyWordsSameLengthAsCurrent && !areAnyWords1LongerThanCurrent)
+		return;
+		
+	if(areAnyWordsSameLengthAsCurrent)
 	{
-		if(word.size() == trenutnaRijec.size() && word != trenutnaRijec)
-			rijeciIsteDuljineKaoTrenutna.push_back(word);
-		if (word.size() == trenutnaRijec.size() + 1)
-			rijeciVeceza1OdTrenutna.push_back(word);
-	});
+		auto wordsSameLengthAsCurrent = wordsGroupedByLength.at(currentWord.length());
 
-	if(rijeciIsteDuljineKaoTrenutna.size() > 0) {
-		int brojOstalihRijeci = rijeciIsteDuljineKaoTrenutna.size();
-		for (auto rijec : rijeciIsteDuljineKaoTrenutna) {
-
-			bool bioPrijeNaRijeci = static_cast<int>(count(bio.begin(), bio.end(), rijec)) == 1;
-			if(!bioPrijeNaRijeci)
+		for_each(wordsSameLengthAsCurrent.begin(), wordsSameLengthAsCurrent.end(), [&](const string& word)
+		{
+			auto areWordsCompatible = areCompatible(currentWord, word);
+			if (areWordsCompatible)
 			{
-				const string& rhs = rijec;
-				auto rimuju = rimujuLiSe(trenutnaRijec, rhs);
-
-				bool bioNaProsloj = static_cast<int>(count(bio.begin(), bio.end(), rijec)) == 1;
-				if (rimuju && brojOstalihRijeci && !bioNaProsloj)
-					konstruirajRekurzivno(rijec);
+				constructSubstringRecursively(word);
 			}
-			brojOstalihRijeci--;
-		}
+		});
 	}
 
-	if(rijeciVeceza1OdTrenutna.size() > 0) {
-		int brojOstalihRijeci = rijeciVeceza1OdTrenutna.size();
-		for (auto rijec : rijeciVeceza1OdTrenutna) {
-			string& rhs = rijec;
-			auto rimuju = rimujuLiSe(trenutnaRijec, rhs);
+	if (areAnyWords1LongerThanCurrent)
+	{
+		auto words1LongerThanCurrent = wordsGroupedByLength.at(currentWord.length() + 1);
 
-			if (rimuju && brojOstalihRijeci)
-				konstruirajRekurzivno(rijec);
-			brojOstalihRijeci--;
-		}
+		for_each(words1LongerThanCurrent.begin(), words1LongerThanCurrent.end(), [&](const string& word)
+		{
+			auto areWordsCompatible = areCompatible(currentWord, word);
+			if (areWordsCompatible)
+			{
+				constructSubstringRecursively(word);
+			}
+		});
 	}
 }
 
-int pronadjiNajduljuRimuRijeci() {
-	sort(words.begin(), words.end(), [](const string& lhs, const string& rhs) { return lhs.size() < rhs.size();  });
-	vector<vector<string>> svaRjesenja;
+int calculateMaximumSubstring()
+{
+	sort(words.begin(), words.end(), [](const string& lhs, const string& rhs) { return lhs.size() < rhs.size(); });
+	vector<int> allSolutions;
 
 	for (int i = 0; i< words.size(); i++)
 	{
-		konstruirajRekurzivno(words[i]);
-		if (rjesenja.size())
+		constructSubstringRecursively(words[i]);
+		if (substringLength)
 		{
-			svaRjesenja.push_back(rjesenja);
-			rjesenja.clear();
+			allSolutions.push_back(substringLength);
+			substringLength = 0;
+			was.clear();
 		}
 	}
-
-	auto solution = *max_element(svaRjesenja.begin(), svaRjesenja.end(), [](const vector<string>& lhs, const vector<string>& rhs) { return lhs.size() < rhs.size(); });
-	return solution.size();
+	return *max_element(allSolutions.begin(), allSolutions.end());
 }
 
-int main()
-{
-	int n;
-	cin >> n;
-	for (int i = 0; i < n; i++)
+int main() {
+	int wordsCount;
+	cin >> wordsCount;
+
+	for (int i =0 ; i < wordsCount; i++)
 	{
-		string temp;
-		cin >> temp;
-		words.push_back(temp);
+		string word;
+		cin >> word;
+
+		reverse(word.begin(), word.end());
+		words.push_back(word);
+
+		if(!wordsGroupedByLength.count(word.length()))
+		{
+			vector<string> wordsOfLength;
+			wordsOfLength.push_back(word);
+			wordsGroupedByLength.insert(make_pair(word.length(), wordsOfLength));
+		}
+		else
+		{
+			wordsGroupedByLength[word.length()].push_back(word);
+		}
 	}
-	cout << pronadjiNajduljuRimuRijeci() << endl;
+	cout << calculateMaximumSubstring() << endl;
 }

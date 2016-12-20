@@ -8,7 +8,7 @@ let parseMarker (markerString : string) =
     { CharsCount = int markerParts.[0]; RepeatCount = int markerParts.[1] }
 
 
-let calculateDecompressedLength (input: string) =
+let rec calculateDecompressedLength (input: string) =
     let chars = input.ToCharArray()
     
     let calculateCharLength accumulator charIndexPair = 
@@ -38,3 +38,5 @@ let calculateDecompressedLength (input: string) =
     Array.mapi (fun index character -> index, character) |>
     Array.fold calculateCharLength { CurrentLength = 0; IgnoredCharsIndexes= [] } |>
     fun accumulator -> accumulator.CurrentLength
+
+let result = calculateDecompressedLength "A(2x2)BCD(2x2)EFG"
