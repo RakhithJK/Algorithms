@@ -38,5 +38,3 @@ let rec calculateDecompressedLength (input: string) =
     Array.mapi (fun index character -> index, character) |>
     Array.fold calculateCharLength { CurrentLength = 0; IgnoredCharsIndexes= [] } |>
     fun accumulator -> accumulator.CurrentLength
-
-let result = calculateDecompressedLength "A(2x2)BCD(2x2)EFG"
