@@ -1,47 +1,85 @@
-open System.Text.RegularExpressions
 open System.Collections.Generic
+open System.IO
+open System.Text.RegularExpressions
 
-type Bot    = { BotId: int    }
-type Output = { OutputId: int }
+type TargetTypeId = Bot of int | Output of int
+type Bot    = { BotId: int; BotMicrochips : int list }
+type Output = { OutputId : int; OutputMicrochips : int list }
 
-let botsRegex    = Regex (@"bot \d", RegexOptions.Compiled)
-let outputsRegex = Regex (@"output \d", RegexOptions.Compiled)
+type InitializeCommandArgs = { ChipValue : int; BotId : int }
+type TransferCommandArgs = { 
+    SourceBotId : int;
+    LoTargetId : TargetTypeId;
+    HiTargetId : TargetTypeId
+}
 
-let parse_bot (input: string) = 
-    match input.Split([|' '|], 2) with
-    | [|_ ; botId|] -> { BotId = int botId }
-    | _         -> failwith "incorrect bot syntax"
+type Command = Initialize of InitializeCommandArgs | Transfer of TransferCommandArgs
+type BotState = { Bot : Bot; Commands : Command list }
 
-let parse_output (input: string) = 
-    match input.Split([|' '|], 2) with
-    | [|_ ; outputId|] -> { OutputId = int outputId }
-    | _         -> failwith "incorrect bot syntax"
-let detectMaximumBot(input : string) = 
-    let results = botsRegex.Matches input
-    results                                         |> 
-    Seq.cast<Match>                                 |>
-    Seq.groupBy(fun regexMatch -> regexMatch.Value) |>
-    Seq.map fst                                     |>
-    Seq.map parse_bot                               |>
-    Seq.maxBy (fun bot -> bot.BotId)
-let detectMaximumOutput(input : string) = 
-    let results = outputsRegex.Matches input
-    results                                         |> 
-    Seq.cast<Match>                                 |>
-    Seq.groupBy(fun regexMatch -> regexMatch.Value) |>
-    Seq.map fst                                     |>
-    Seq.map parse_output                            |>
-    Seq.maxBy (fun output -> output.OutputId)
+let (|Regex|_|) pattern input =
+        let result = Regex.Match(input, pattern)
+        match result.Success with
+        | true  -> Some (List.tail [for group in result.Groups -> group.Value])
+        | false -> None
 
-let bots    = new Dictionary<Bot, int list>()
-let outputs = new Dictionary<Output, int list>()
+let (|Int|) x = int x
+let (|Target|) = function | "bot" -> Bot | _ -> Output
 
-let initialize (input : string) =
-    let maximumBot    = detectMaximumBot input
-    let maximumOutput = detectMaximumOutput input
+let (|Command|_|) (input : string) =
+    match input with 
+    | Regex "value (\d*) goes to bot (\d*)" [chipValue; botId] ->
+        Some (Initialize { ChipValue = int chipValue; BotId = int botId })
+    | Regex "bot (\d*) gives low to (bot|output) (\d*) and high to (bot|output) (\d*)" [Int botId; Target loTargetType; Int loTargetId; Target hiTargetType; Int hiTargetId] ->
+        Some (Transfer { SourceBotId = int botId; LoTargetId = loTargetType loTargetId; HiTargetId = hiTargetType hiTargetId })
+    | _ -> None
 
-    [1..maximumBot.BotId]       |> List.iter(fun botId    -> bots.Add({ BotId = botId }, []))
-    [1..maximumOutput.OutputId] |> List.iter(fun outputId -> outputs.Add({ OutputId = outputId }, []))
+//let input = File.ReadAllText __SOURCE_DIRECTORY__ + "/day10.txt"
 
-    bots.[{ BotId = 1}] <- [3]
-    bots.[{ BotId = 2}] <- [2]
+let states = new Dictionary<int, BotState>()
+let parseCommand (input: string) =
+    match input with
+    | Command command -> command
+    | _ -> failwith "cannot parse command"
+
+let updateBotState (command : Command) =
+    match command with
+    | Initialize args ->
+        let isAlreadyInitialized = states.ContainsKey(args.BotId)
+        match isAlreadyInitialized with 
+        | true -> 
+            let bot = {
+                BotId = args.BotId;
+                BotMicrochips = args.ChipValue::states.[args.BotId].Bot.BotMicrochips
+            }
+            states.[args.BotId] <- { Bot = bot; Commands = states.[args.BotId].Commands }
+
+        | false -> 
+            let bot = {
+                BotId = args.BotId;
+                BotMicrochips = [args.ChipValue]
+            }
+            states.[args.BotId] <- { Bot = bot; Commands = [] } 
+    | Transfer args ->
+        let updated = {
+            Bot = states.[args.SourceBotId].Bot;
+            Commands = (Transfer args)::states.[args.SourceBotId].Commands
+        }
+        states.[args.SourceBotId] <- updated;
+
+let initializeStates (input: string[]) =
+    input |> 
+    Array.sort |>
+    Array.map parseCommand |>
+    Array.iter updateBotState
+    
+    states
+
+let testInputString = "value 5 goes to bot 2
+bot 2 gives low to bot 1 and high to bot 0
+value 3 goes to bot 1
+bot 1 gives low to output 1 and high to bot 0
+bot 0 gives low to output 2 and high to output 0
+value 2 goes to bot 2"
+let testInput = testInputString.Split('\n')
+
+initializeStates testInput
