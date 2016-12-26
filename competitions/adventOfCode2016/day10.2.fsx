@@ -154,7 +154,8 @@ let solve() (input : string) =
     initializeStates (input.Split('\n', '\r') |> Array.filter (fun substring -> substring.Length > 0)) |> ignore
     executeInstructions()
     
-    givenChips |>
-    Seq.filter (fun pair -> (snd pair).Contains(17) && (snd pair).Contains(61)) |>
-    Seq.map fst |>
-    List.ofSeq
+    outputs |>
+    Seq.where (fun pair -> (pair.Key) = 0 || (pair.Key) = 1 || (pair.Key) = 2) |>
+    Seq.map (fun pair -> pair.Value) |>
+    Seq.concat |>
+    Seq.reduce (*)
