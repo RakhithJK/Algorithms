@@ -1,10 +1,11 @@
 open System.Collections.Generic
 open System.IO
 open System.Text.RegularExpressions
+open System.Linq
 
 type TargetTypeId = Bot of int | Output of int
-type Bot    = { BotId: int; BotMicrochips : int list }
-type Output = { OutputId : int; OutputMicrochips : int list }
+type Bot          = { BotId: int; BotMicrochips : int list }
+type Output       = { OutputId : int; OutputMicrochips : int list }
 
 type InitializeCommandArgs = { ChipValue : int; BotId : int }
 type TransferCommandArgs = { 
@@ -33,13 +34,15 @@ let (|Command|_|) (input : string) =
         Some (Transfer { SourceBotId = int botId; LoTargetId = loTargetType loTargetId; HiTargetId = hiTargetType hiTargetId })
     | _ -> None
 
-//let input = File.ReadAllText __SOURCE_DIRECTORY__ + "/day10.txt"
+let states  = new Dictionary<int, BotState>()
+let outputs = new Dictionary<int, int list>()
 
-let states = new Dictionary<int, BotState>()
 let parseCommand (input: string) =
     match input with
     | Command command -> command
-    | _ -> failwith "cannot parse command"
+    | x ->
+        printfn "%A" x 
+        failwith "cannot parse command"
 
 let updateBotState (command : Command) =
     match command with
@@ -60,26 +63,97 @@ let updateBotState (command : Command) =
             }
             states.[args.BotId] <- { Bot = bot; Commands = [] } 
     | Transfer args ->
-        let updated = {
-            Bot = states.[args.SourceBotId].Bot;
-            Commands = (Transfer args)::states.[args.SourceBotId].Commands
-        }
-        states.[args.SourceBotId] <- updated;
-
+        let isAlreadyInitialized = states.ContainsKey(args.SourceBotId)
+        match isAlreadyInitialized with
+        | true ->
+            let updated = {
+                Bot = states.[args.SourceBotId].Bot;
+                Commands = (Transfer args)::states.[args.SourceBotId].Commands
+            }
+            states.[args.SourceBotId] <- updated;
+        | false ->
+            let botState = {
+                Bot = {
+                    BotId         = args.SourceBotId
+                    BotMicrochips = []
+                };
+                Commands = [(Transfer args)]
+            }
+            states.[args.SourceBotId] <- botState  
 let initializeStates (input: string[]) =
     input |> 
-    Array.sort |>
     Array.map parseCommand |>
-    Array.iter updateBotState
-    
+    Array.iter updateBotState 
+
     states
 
-let testInputString = "value 5 goes to bot 2
-bot 2 gives low to bot 1 and high to bot 0
-value 3 goes to bot 1
-bot 1 gives low to output 1 and high to bot 0
-bot 0 gives low to output 2 and high to output 0
-value 2 goes to bot 2"
-let testInput = testInputString.Split('\n')
+let transfer value target =
+    match target with
+    | Bot targetId ->
+        let currentState = states.[targetId]
+        let updatedState = {
+            Bot = {
+                BotId = currentState.Bot.BotId;
+                BotMicrochips = (value::currentState.Bot.BotMicrochips)
+            }
+            Commands = currentState.Commands
+        }
+        states.[targetId] <- updatedState
+    | Output outputId -> 
+        let isOutputInitialized = outputs.ContainsKey(outputId)
 
-initializeStates testInput
+        match isOutputInitialized with
+        | true ->
+            outputs.[outputId] <- (value::outputs.[outputId])
+        | false ->
+            outputs.Add(outputId, [value])
+
+let givenChips = new ResizeArray<int*int list>()
+
+let execute command =
+    match command with
+    | Transfer args ->
+        let currentState = states.[args.SourceBotId]
+        let loChip = List.min currentState.Bot.BotMicrochips
+        let hiChip = List.max currentState.Bot.BotMicrochips
+
+        transfer loChip args.LoTargetId
+        transfer hiChip args.HiTargetId
+
+        givenChips.Add (args.SourceBotId, [loChip; hiChip])
+
+        let commandsWithoutCurrent = currentState.Commands |> List.filter (fun cmd -> cmd <> command)
+        let updatedState = {
+            Bot      = { currentState.Bot with Bot.BotMicrochips = [] };
+            Commands = commandsWithoutCurrent
+        }
+        states.[args.SourceBotId] <- updatedState  
+    | Initialize args -> ()
+
+let executeInstructions() = 
+    let rec executeIfPossible() =
+        let canExecute = 
+            not (states |>
+            Seq.filter (fun pair -> pair.Value.Bot.BotMicrochips.Length = 2) |>
+            Seq.isEmpty)
+        match canExecute with
+        | true ->
+            let stateWithTwoMicrochips = 
+                states |>
+                Seq.filter (fun pair -> pair.Value.Bot.BotMicrochips.Length = 2) |>
+                Seq.map (fun pair -> pair.Value) |>
+                Seq.head
+            let command = List.head stateWithTwoMicrochips.Commands 
+            execute command
+            executeIfPossible()
+        | false -> ()
+
+    executeIfPossible()
+
+let solve() =
+    executeInstructions()
+    
+    givenChips |>
+    Seq.filter (fun pair -> (snd pair).Contains(17) && (snd pair).Contains(61)) |>
+    Seq.map fst |>
+    List.ofSeq
