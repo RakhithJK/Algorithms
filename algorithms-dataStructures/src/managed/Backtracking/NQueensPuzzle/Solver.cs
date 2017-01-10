@@ -11,26 +11,26 @@ namespace NQueensPuzzle
             this.chessboardSize = chessboardSize;
         }
 
-        private readonly int chessboardSize;
-        private List<Tuple<int, int>> placedQueens;
-        private int[,]  chessboard;
+        private readonly    int                     chessboardSize;
+        private             List<Tuple<int, int>>   placedQueens;
+        private             int[,]                  chessboard;
 
         public class Result
         {
             public Result(
-                bool canBeSolved, 
-                int[,] chessboard, 
-                IEnumerable<Tuple<int, int>> placedQueensPositions
+                bool                            canBeSolved, 
+                int[,]                          chessboard, 
+                IEnumerable<Tuple<int, int>>    placedQueensPositions
             )
             {
-                CanBeSolved = canBeSolved;
-                Chessboard = chessboard;
-                PlacedQueensPositions = placedQueensPositions;
+                CanBeSolved             = canBeSolved;
+                Chessboard              = chessboard;
+                PlacedQueensPositions   = placedQueensPositions;
             }
 
-            public bool CanBeSolved { get; private set; }
-            public int[,] Chessboard { get; private set; }
-            public IEnumerable<Tuple<int, int>> PlacedQueensPositions { get; private set; }
+            public bool                             CanBeSolved             { get; private set; }
+            public int[,]                           Chessboard              { get; private set; }
+            public IEnumerable<Tuple<int, int>>     PlacedQueensPositions   { get; private set; }
         }
 
         private bool ArePositionsAttacking(Tuple<int, int> lhs, Tuple<int, int> rhs)
@@ -77,11 +77,10 @@ namespace NQueensPuzzle
         {
             this.chessboard   = new int[chessboardSize, chessboardSize];
             this.placedQueens = new List<Tuple<int, int>>(chessboardSize);
-            var canBeSolved = CanPlaceRestOfTheQueens(0);
+            var canBeSolved   = CanPlaceRestOfTheQueens(0);
             return canBeSolved
                 ? new Result(true, chessboard, this.placedQueens)
                 : new Result(false, null, null);
         }
-
     }
 }
