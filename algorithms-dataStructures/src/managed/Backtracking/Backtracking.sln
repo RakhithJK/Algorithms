@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnightsTour", "KnightsTour\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindWordInMatrix", "FindWordInMatrix\FindWordInMatrix.csproj", "{4C79BB48-48EC-4312-AD77-0C8B1465ACC0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RatInAMazeProblem", "RatInAMazeProblem\RatInAMazeProblem.csproj", "{35F69F65-B549-4717-8E33-0596F04D29FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4C79BB48-48EC-4312-AD77-0C8B1465ACC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C79BB48-48EC-4312-AD77-0C8B1465ACC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C79BB48-48EC-4312-AD77-0C8B1465ACC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35F69F65-B549-4717-8E33-0596F04D29FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35F69F65-B549-4717-8E33-0596F04D29FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35F69F65-B549-4717-8E33-0596F04D29FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35F69F65-B549-4717-8E33-0596F04D29FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
