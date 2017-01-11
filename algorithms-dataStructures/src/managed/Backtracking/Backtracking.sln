@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NQueensPuzzle", "NQueensPuz
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SudokuSolver", "SudokuSolver\SudokuSolver.csproj", "{13CDA6BF-8787-44C5-B882-220980874C75}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordBreakProblem", "WordBreakProblem\WordBreakProblem.csproj", "{2411B8E2-AB14-4E56-BF54-85F000086851}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{13CDA6BF-8787-44C5-B882-220980874C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13CDA6BF-8787-44C5-B882-220980874C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13CDA6BF-8787-44C5-B882-220980874C75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2411B8E2-AB14-4E56-BF54-85F000086851}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2411B8E2-AB14-4E56-BF54-85F000086851}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2411B8E2-AB14-4E56-BF54-85F000086851}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2411B8E2-AB14-4E56-BF54-85F000086851}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
