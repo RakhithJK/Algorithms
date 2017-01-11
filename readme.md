@@ -17,7 +17,7 @@ Repository is simply named Algorithms, but there will be also a design patterns 
 * Let computer generate random number in [0,100] and develop algorithm which guesses generated number in less or equal to 7 steps
 * Dynamic connectivity problem -> various union find algorithms
 * Collinear points Bruteforce and Optimized(n2 log n) solution
-* Backtracking problems -> N Queens problem, Knight's tour problem, Rat in a maze problem, Searching for a word in letters matrix, Sudoku (9 * 9) solver
+* Backtracking problems -> N Queens problem, Knight's tour problem, Rat in a maze problem, Word break problem (without DP and with DP), Searching for a word in letters matrix, Sudoku (9 * 9) solver
 
 ### Algorithm and DS Competition solutions
 * COCI 2016/2017 round 1 Jetpack task
