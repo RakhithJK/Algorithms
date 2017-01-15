@@ -1,0 +1,9 @@
+﻿Load a matrix of characters which represents city map.
+Characters can be :
+	X is building/wall
+	. is part of a road/path
+	- is person
+	0 is sandwich
+Then calculate maximum amount of sandwiches that person can eat and distance from starting position to the most distant sandwich.
+Calculate how many steps did journey for sandwiches take.
+Person can move in 4 standard directions (up, down, left, right).
