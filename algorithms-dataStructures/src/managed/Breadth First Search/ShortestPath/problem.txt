@@ -1,0 +1,6 @@
+﻿Load a 'city' map and display shortest path between two locations.
+Map is a char matrix, and characters represent:
+	'X' - wall/building
+	'0' - locations -> start or destination, only two of them should exist on map
+	'.' - part of a road
+Distance between each adjacent point is constant, can move up down left right.
