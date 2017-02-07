@@ -18,6 +18,9 @@ Repository is simply named Algorithms, but there will be also a design patterns 
 * __Dynamic connectivity problem__ -> various union find algorithms
 * Collinear points Bruteforce and Optimized(n2 log n) solution
 * __Backtracking problems__ -> N Queens problem, Knight's tour problem, Rat in a maze problem, Word break problem (without DP and with DP), Searching for a word in letters matrix, Sudoku (9 * 9) solver, Magic Square (3x3) generator
+* __Graph problems__ -> Topological sort problems, Bipartitive testing problems
+* __Greedy problems__ -> Greedy iterative activity selection problem, job scheduling with max profit and deadline
+
 
 ### Algorithm and DS Competition solutions
 * __COCI 2016/2017__ round 1 Jetpack task
