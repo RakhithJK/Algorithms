@@ -18,7 +18,7 @@ Repository is simply named Algorithms, but there will be also a design patterns 
 * __Dynamic connectivity problem__ -> various union find algorithms
 * Collinear points Bruteforce and Optimized(n2 log n) solution
 * __Backtracking problems__ -> N Queens problem, Knight's tour problem, Rat in a maze problem, Word break problem (without DP and with DP), Searching for a word in letters matrix, Sudoku (9 * 9) solver, Magic Square (3x3) generator
-* __Graph problems__ -> Topological sort problems, Bipartitive testing problems
+* __Graph problems__ -> Topological sort problems, Bipartitive testing problems, Longest path problems, Maze problems, Graph searching and coloring problems
 * __Greedy problems__ -> Greedy iterative activity selection problem, job scheduling with max profit and deadline
 
 
@@ -29,6 +29,7 @@ Repository is simply named Algorithms, but there will be also a design patterns 
 * First 10 __Advent of Code 2016__ problems
 
 ### Will be implemented
-* Graphs, graph algorithms and common algorithms like shortest/longest paths, graphs, traversal algorithms (DFS, BFS)
-* Interesting COCI (Croatian open informatics competition) or Codewars problems
+* Various graph problems
+* Various dynamic programming problems
+* Interesting COCI (Croatian open informatics competition) or SPOJ problems
 * Common DesignPatterns like AbstractFactory, Command, Strategy, Decorator, Iterator, Singleton and ...
