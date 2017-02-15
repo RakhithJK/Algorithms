@@ -111,6 +111,5 @@ int main()
 	for (auto result : results)
 		cout << result << endl;
 
-	system("pause");
 	return 0;
 }

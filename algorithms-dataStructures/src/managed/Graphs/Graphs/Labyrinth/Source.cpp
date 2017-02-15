@@ -19,7 +19,7 @@ inline bool isInLab(int row, int col)
 }
 
 int pathLength = -1;
-void flood_fill(int row, int col, int currentPathLength)
+void dfs(int row, int col, int currentPathLength)
 {
 	if (currentPathLength >= pathLength)
 	{
@@ -43,7 +43,7 @@ void flood_fill(int row, int col, int currentPathLength)
 			visited.find({ newRow, newCol })	== visited.end()
 		)
 		{
-			flood_fill(newRow, newCol, currentPathLength + 1);
+			dfs(newRow, newCol, currentPathLength + 1);
 		}
 	}
 }
@@ -56,14 +56,14 @@ int calculateLongestPath()
 		{
 			if (currentLab[x][y] == '.' && visited.find({ x,y }) == visited.end())
 			{
-				flood_fill(x, y, 0);
+				dfs(x, y, 0);
 			}
 		}
 	}
 
 	pathLength = -1;
 	visited.clear();
-	flood_fill(longestDistancePosition.first, longestDistancePosition.second, 0);
+	dfs(longestDistancePosition.first, longestDistancePosition.second, 0);
 
 	return pathLength;
 }

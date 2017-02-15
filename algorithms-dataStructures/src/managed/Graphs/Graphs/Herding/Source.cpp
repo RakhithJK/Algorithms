@@ -6,10 +6,10 @@
 
 using namespace std;
 
-int xMax, yMax;
-vector<string> grid;
+int					xMax, yMax;
+vector<string>		grid;
 vector<vector<int>> visited;
-int currentFlood = 0, traps = 0;
+int					currentFlood = 0, traps = 0;
 
 inline bool isInGrid(int row, int col)
 {
