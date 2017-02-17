@@ -11,9 +11,9 @@ set<pair<int,int>>					emptyAdjacencies;
 vector<pair<pair<int,int>, int>>	adjacencies;
 map<int, set<pair<int,int>>>		graph;
 
-int numberOfTests;
-int numberOfAdjacencies;
-int longestDistanceNode;
+int  numberOfTests;
+int  numberOfAdjacencies;
+int  longestDistanceNode;
 long longestDistance = -1;
 
 set<int> nodes;
