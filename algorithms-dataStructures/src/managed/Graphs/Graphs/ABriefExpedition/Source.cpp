@@ -16,7 +16,7 @@ int nOfMalls,
 	carY = infinity;
 
 string			row;
-vector<string>	map;
+vector<string>	terrain;
 int				distances[101][101];
 
 inline bool isInMap(int y, int x)
@@ -48,7 +48,7 @@ inline void bfs()
 			if(
 				isInMap(newY, newX) && 
 				distances[newY][newX] == infinity &&
-				map[newY][newX] != '#'
+				terrain[newY][newX] != '#'
 			)
 			{
 				distances[newY][newX] = currentPointDistance + 1;
@@ -68,7 +68,7 @@ inline int	calculatePathCost()
 	{
 		for (int j = 0; j < sizeX; j++)
 		{
-			if(map[i][j] == 'S')
+			if(terrain[i][j] == 'S')
 			{
 				cost += 60 + 2 * distances[i][j];
 				maxPath = max(maxPath, distances[i][j]);
@@ -93,11 +93,11 @@ int main()
 	{
 		cin >> sizeY >> sizeX;
 		clearDistances();
-		map.clear();
+		terrain.clear();
 		for (int y = 0; y < sizeY; y++)
 		{
 			cin >> row;
-			map.push_back(row);
+			terrain.push_back(row);
 			auto maybeCar = row.find('C');
 
 			if(maybeCar != string::npos)

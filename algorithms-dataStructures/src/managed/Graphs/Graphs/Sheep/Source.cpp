@@ -13,7 +13,7 @@ const		int				infinity = numeric_limits<int>::max() / 2;
 
 int sectorId, sizeY, sizeX, survivedSheep, survivedWolves;
 
-vector<string>	map;
+vector<string>	terrain;
 set<location>	visitedLoc;
 int				xOff[] = { 0, 0, -1, 1 };
 int				yOff[] = { -1,1,0,0 };
@@ -24,10 +24,10 @@ inline bool isInMap(int y, int x)
 }
 inline bool isEscapeLocation(int row, int col)
 {
-	return (row == 0		 &&	col == 0			&& map[row][col] == '.')	&&
-		   (row == 0		 &&	col == sizeX - 1	&& map[row][col] == '.')	&&
-		   (row == sizeY - 1 && col == 0			&& map[row][col] == '.')	&&
-		   (row == sizeY - 1 && col == sizeX - 1	&& map[row][col] == '.');
+	return (row == 0		 &&	col == 0			&& terrain[row][col] == '.')	&&
+		   (row == 0		 &&	col == sizeX - 1	&& terrain[row][col] == '.')	&&
+		   (row == sizeY - 1 && col == 0			&& terrain[row][col] == '.')	&&
+		   (row == sizeY - 1 && col == sizeX - 1	&& terrain[row][col] == '.');
 }
 
 inline void visitSector(int startRow, int startCol)
@@ -48,9 +48,9 @@ inline void visitSector(int startRow, int startCol)
 
 		visitedLoc.insert(currentLocation);
 
-		if (map[currentLocation.first][currentLocation.second] == 'k')
+		if (terrain[currentLocation.first][currentLocation.second] == 'k')
 			sectorSheep++;
-		if (map[currentLocation.first][currentLocation.second] == 'v')
+		if (terrain[currentLocation.first][currentLocation.second] == 'v')
 			sectorWolves++;
 
 		if (isEscapeLocation(currentLocation.first, currentLocation.second))
@@ -63,7 +63,7 @@ inline void visitSector(int startRow, int startCol)
 			if (
 				isInMap(newY, newX) &&
 				visitedLoc.find({ newY, newX }) == visitedLoc.end() &&
-				map[newY][newX] != '#'
+				terrain[newY][newX] != '#'
 			)
 			{
 				q.push({ newY, newX });
@@ -87,7 +87,7 @@ inline void visitAllSectors()
 	{
 		for (int col = 0; col < sizeX; col++)
 		{
-			if (map[row][col] != '#' && visitedLoc.find({ row, col }) == visitedLoc.end())
+			if (terrain[row][col] != '#' && visitedLoc.find({ row, col }) == visitedLoc.end())
 			{
 				sectorId++;
 				visitSector(row, col);
@@ -105,7 +105,7 @@ int main()
 	{
 		string columns;
 		cin >> columns;
-		map.push_back(columns);
+		terrain.push_back(columns);
 	}
 
 	visitAllSectors();
