@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{23D89D60-E021-4BB3-88F6-4A9EC72D9D3C}</ProjectGuid>
-    <RootNamespace>ElevatorTrouble</RootNamespace>
+    <ProjectGuid>{7056CFFD-40EF-40AB-BE41-B8E057C42E5F}</ProjectGuid>
+    <RootNamespace>TheShortestPath</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -111,9 +111,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="problem.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
