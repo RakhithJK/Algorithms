@@ -1,127 +1,129 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
-#include<string>
+#include<queue>
+#include<algorithm>
 #include<vector>
 #include<array>
-#include<algorithm>
-#include<cstdio>
 #include<unordered_map>
-#include<queue>
-#include<functional>
+#include<cstring>
 
 using namespace std;
+#define nodesCount			10002
+#define discovered_byCount	2
+#define infinity			1061109567
 
-int const infinity = 0x3f3f3f3f;
-int const maxNodes = 10000 + 5;
-
-typedef pair<int, int> node_state;
-
-enum discovered_type
+enum   discovered_by
 {
-	directed = 0,
+	direct = 0,
 	proposed = 1
 };
-
-struct edgeOrState
+struct path_state
 {
-	edgeOrState() {}
-	edgeOrState(int destination, int cost, discovered_type type = directed)
+	int destination;
+	int cost;
+	discovered_by discoveredBy;
+
+	path_state() {}
+	path_state(int destination, int cost, discovered_by discBy)
 	{
 		this->destination = destination;
 		this->cost = cost;
-		this->type = type;
+		this->discoveredBy = discBy;
 	}
-	int destination;
-	discovered_type type;
-	int cost;
 
-	bool operator < (const edgeOrState& other) const {
+	bool operator < (path_state& other) const {
 		return cost > other.cost;
 	}
 };
-
-unordered_map<int, vector<edgeOrState>> graph;
-int distances[maxNodes][2];
-bool visited[maxNodes][2];
-
-int tests;
-int citiesN;
-int oneWayRoadsN;
-int proposedN;
-int source;
-int destination;
-
-bool dijkstra()
+struct path_state_comparer
 {
-	for(int i = 0; i < 10002; i++)
-	{
-		distances[i][0] = infinity;
-		distances[i][1] = infinity;
+	bool operator () (path_state& lhs, path_state& rhs) const {
+		return lhs.cost > rhs.cost;
 	}
-	
-	priority_queue<edgeOrState, vector<edgeOrState>> q;
-	distances[source][directed] = 0;
-	distances[source][proposed] = 0;
-
-	q.push(edgeOrState(source, 0, directed));
-	q.push(edgeOrState(source, 0, proposed));
-
-	bool isReachable = false;
-	while (!q.empty())
+};
+struct adjacency
+{
+	adjacency() {}
+	adjacency(int adjacent, int cost, discovered_by adjacencyType)
 	{
-		auto currentState = q.top();
-		int currentVertex = currentState.destination;
-		int currentType = currentState.type;
+		this->adjacent = adjacent;
+		this->cost = cost;
+		this->adjacencyType = adjacencyType;
+	}
+
+	int adjacent;
+	int cost;
+	discovered_by adjacencyType;
+
+	bool operator < (const adjacency& other) const {
+		return cost < other.cost;
+	}
+	bool operator == (const adjacency& other) const {
+		return adjacent == other.adjacent && cost == other.cost && adjacencyType == other.adjacencyType;
+	}
+};
+
+unordered_map<int, vector<adjacency>> graph;
+
+int dijkstra(int source, int destination) {
+	priority_queue<path_state, vector<path_state>, path_state_comparer> q;
+	int dist[nodesCount][discovered_byCount];
+
+	for(int i = 0; i < nodesCount; i++)
+	{
+		dist[i][direct]   = infinity;
+		dist[i][proposed] = infinity;
+	}
+
+	bool reachable = false;
+	dist[source][direct] = 0;
+	q.push(path_state(source, 0, direct));
+	
+	while(!q.empty())
+	{
+		auto current = q.top();
 		q.pop();
 
-		visited[currentState.destination][currentType] = true;
-
-		if (currentState.destination == destination)
-			isReachable = true;
-
-		for(auto edge : graph[currentState.destination])
+		if(current.destination == destination)
 		{
-			if(visited[edge.destination][edge.type])
-				continue;
+			reachable = true;
+			continue;
+		}
 
-			auto newCost = edge.cost + distances[currentVertex][currentType];
-			auto nextNode = edge.destination;
+		for (auto edge : graph[current.destination])
+		{
+			if (!(current.discoveredBy == proposed && edge.adjacencyType == proposed))
+			{
+				auto edgeType = static_cast<discovered_by>(current.discoveredBy || edge.adjacencyType);
 
-			if (newCost < distances[nextNode][edge.type]) {
-				distances[nextNode][edge.type] = newCost;
-				q.push(edgeOrState(nextNode, newCost, edge.type));
+				if(dist[current.destination][current.discoveredBy] + edge.cost < dist[edge.adjacent][edgeType]) //relax
+				{
+					dist[edge.adjacent][current.discoveredBy || edge.adjacencyType] = dist[current.destination][current.discoveredBy] + edge.cost;
+					q.push(path_state(edge.adjacent, edge.cost, edgeType));
+				}
 			}
 		}
-		
 	}
-	return isReachable;
+
+	return reachable ? min(dist[destination][direct], dist[destination][proposed]) : -1;
 }
-int main()
-{
-	ios::sync_with_stdio(false);
-	cin.tie(nullptr);
 
-	cin >> tests;
-	for(int t = 0; t < tests; t++)
-	{
+int main() {
+	int tests, nodesN, directRoadsN, proposedRoadsN, source, destination, lhs, rhs, cost;
+	scanf("%d", &tests);
+	while (tests--) {
 		graph.clear();
-		cin >> citiesN >> oneWayRoadsN >> proposedN >> source >> destination;
-
-		for(int road = 0; road < oneWayRoadsN; road ++)
-		{
-			int lhs, rhs, cost;
-			cin >> lhs >> rhs >> cost;
-			graph[lhs].push_back(edgeOrState(rhs, cost, directed));
+		scanf("%d %d %d %d %d", &nodesN, &directRoadsN, &proposedRoadsN, &source, &destination);
+		for (int i = 0; i < directRoadsN; i++) {
+			scanf("%d %d %d", &lhs, &rhs, &cost);
+			graph[lhs].push_back(adjacency(rhs, cost, direct));
 		}
-		for (int road = 0; road < proposedN; road++)
-		{
-			int lhs, rhs, cost;
-			cin >> lhs >> rhs >> cost;
-			graph[lhs].push_back(edgeOrState(rhs, cost, proposed));
-			graph[rhs].push_back(edgeOrState(lhs, cost, proposed));
+		for (int i = 0; i < proposedRoadsN; i++) {
+			scanf("%d %d %d", &lhs, &rhs, &cost);
+			graph[lhs].push_back(adjacency(rhs, cost, proposed));
+			graph[rhs].push_back(adjacency(lhs, cost, proposed));
 		}
-
-		auto reachable = dijkstra();
-		cout << (reachable ? min(distances[destination][0], distances[destination][1]) : -1) << endl;
+		printf("%d\n", dijkstra(source, destination));
 	}
 	return 0;
 }
