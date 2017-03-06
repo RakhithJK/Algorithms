@@ -85,10 +85,10 @@ bool dijkstra()
 
 			auto newCost = edge.cost + distances[currentVertex][currentType];
 			auto nextNode = edge.destination;
-			auto nextType = edge.type;
-			if (newCost < distances[nextNode][nextType]) {
-				distances[nextNode][nextType] = newCost;
-				q.push(edgeOrState(nextNode, newCost, nextType));
+
+			if (newCost < distances[nextNode][edge.type]) {
+				distances[nextNode][edge.type] = newCost;
+				q.push(edgeOrState(nextNode, newCost, edge.type));
 			}
 		}
 		
