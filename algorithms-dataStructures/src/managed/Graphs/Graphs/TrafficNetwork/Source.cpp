@@ -98,7 +98,7 @@ int dijkstra(int source, int destination) {
 
 				if(dist[current.destination][current.discoveredBy] + edge.cost < dist[edge.adjacent][edgeType]) //relax
 				{
-					dist[edge.adjacent][current.discoveredBy || edge.adjacencyType] = dist[current.destination][current.discoveredBy] + edge.cost;
+					dist[edge.adjacent][edgeType] = dist[current.destination][current.discoveredBy] + edge.cost;
 					q.push(path_state(edge.adjacent, edge.cost, edgeType));
 				}
 			}
