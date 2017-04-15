@@ -7,7 +7,7 @@ using namespace std;
 #define infinity INT_MAX / 2
 
 vector<vector<int>> islandsGraph;
-vector<int>			lowtimeOf;
+vector<int>			lowLinkOf;
 vector<int>			discoveryTimeOf;
 vector<int>			parentOf;
 vector<bool>		isArticulationPoint;
@@ -16,45 +16,45 @@ vector<bool>		visited;
 int islandsN, bridgesN;
 int currentTime;
 
-void tarjanDfs(int island)
+int computeLowlink(int island)
 {
-	lowtimeOf[island]		= discoveryTimeOf[island] = ++currentTime;
+	lowLinkOf[island]		= discoveryTimeOf[island] = ++currentTime;
 	visited[island]			= true;
-	auto numberOfChildren	= 0;
+	auto disconnectedChildrenCount	= 0;
 
 	for(auto adjacent : islandsGraph[island])
 	{
 		if(!visited[adjacent])
 		{
-			numberOfChildren++;
+			disconnectedChildrenCount++;
 			parentOf[adjacent] = island;
-			tarjanDfs(adjacent);
-			lowtimeOf[island] = min(lowtimeOf[island], lowtimeOf[adjacent]);
+			lowLinkOf[island] = min(lowLinkOf[island], computeLowlink(adjacent));
 
-			if (parentOf[island] == infinity && numberOfChildren > 1)
+			if (parentOf[island] == infinity && disconnectedChildrenCount > 1)
 				isArticulationPoint[island] = true;
 
-			if (parentOf[island] != infinity && discoveryTimeOf[island] <= lowtimeOf[adjacent])
+			if (parentOf[island] != infinity && discoveryTimeOf[island] <= lowLinkOf[adjacent])
 				isArticulationPoint[island] = true;
 		}
 		else if (adjacent != parentOf[island])
-			lowtimeOf[island] = min(lowtimeOf[island], discoveryTimeOf[adjacent]);
+			lowLinkOf[island] = min(lowLinkOf[island], discoveryTimeOf[adjacent]);
 	}
+	return lowLinkOf[island];
 }
 
 auto computeArticulationPoints()
 {
-	currentTime = 0;
-	visited				= vector<bool>(islandsN + 1, false);
-	lowtimeOf			= vector<int>(islandsN + 1, infinity);
-	discoveryTimeOf		= vector<int>(islandsN + 1, infinity);
-	parentOf			= vector<int>(islandsN + 1, infinity);
-	isArticulationPoint = vector<bool>(islandsN + 1, false);
+	currentTime			= 0;
+	visited				= vector<bool>	(islandsN + 1, false);
+	lowLinkOf  			= vector<int>	(islandsN + 1, infinity);
+	discoveryTimeOf		= vector<int>	(islandsN + 1, infinity);
+	parentOf			= vector<int>	(islandsN + 1, infinity);
+	isArticulationPoint = vector<bool>	(islandsN + 1, false);
 
 	for (auto island = 1; island <= islandsN; island++)
 		if (!visited[island])
-			tarjanDfs(island);
-
+			computeLowlink(island);
+	
 	return count(isArticulationPoint.begin(), isArticulationPoint.end(), true);
 }
 
