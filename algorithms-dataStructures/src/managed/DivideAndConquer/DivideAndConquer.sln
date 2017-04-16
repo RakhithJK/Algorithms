@@ -7,6 +7,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "InversionsCounter", "Invers
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Yodaness", "Yodaness\Yodaness.vcxproj", "{338E4206-02DB-465B-83ED-94B9DD0892AC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sorting Bank Accounts", "Sorting Bank Accounts\Sorting Bank Accounts.vcxproj", "{33569AD7-8770-4639-870F-396B41E81511}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AggresiveCows", "AggresiveCows\AggresiveCows.vcxproj", "{C61C7B12-0901-4BAA-8FB3-3DD3938BF1A3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BinarySearch", "BinarySearch", "{23BE4664-EB1F-4523-A36E-97E19378A54D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,8 +37,27 @@ Global
 		{338E4206-02DB-465B-83ED-94B9DD0892AC}.Release|x64.Build.0 = Release|x64
 		{338E4206-02DB-465B-83ED-94B9DD0892AC}.Release|x86.ActiveCfg = Release|Win32
 		{338E4206-02DB-465B-83ED-94B9DD0892AC}.Release|x86.Build.0 = Release|Win32
+		{33569AD7-8770-4639-870F-396B41E81511}.Debug|x64.ActiveCfg = Debug|x64
+		{33569AD7-8770-4639-870F-396B41E81511}.Debug|x64.Build.0 = Debug|x64
+		{33569AD7-8770-4639-870F-396B41E81511}.Debug|x86.ActiveCfg = Debug|Win32
+		{33569AD7-8770-4639-870F-396B41E81511}.Debug|x86.Build.0 = Debug|Win32
+		{33569AD7-8770-4639-870F-396B41E81511}.Release|x64.ActiveCfg = Release|x64
+		{33569AD7-8770-4639-870F-396B41E81511}.Release|x64.Build.0 = Release|x64
+		{33569AD7-8770-4639-870F-396B41E81511}.Release|x86.ActiveCfg = Release|Win32
+		{33569AD7-8770-4639-870F-396B41E81511}.Release|x86.Build.0 = Release|Win32
+		{C61C7B12-0901-4BAA-8FB3-3DD3938BF1A3}.Debug|x64.ActiveCfg = Debug|x64
+		{C61C7B12-0901-4BAA-8FB3-3DD3938BF1A3}.Debug|x64.Build.0 = Debug|x64
+		{C61C7B12-0901-4BAA-8FB3-3DD3938BF1A3}.Debug|x86.ActiveCfg = Debug|Win32
+		{C61C7B12-0901-4BAA-8FB3-3DD3938BF1A3}.Debug|x86.Build.0 = Debug|Win32
+		{C61C7B12-0901-4BAA-8FB3-3DD3938BF1A3}.Release|x64.ActiveCfg = Release|x64
+		{C61C7B12-0901-4BAA-8FB3-3DD3938BF1A3}.Release|x64.Build.0 = Release|x64
+		{C61C7B12-0901-4BAA-8FB3-3DD3938BF1A3}.Release|x86.ActiveCfg = Release|Win32
+		{C61C7B12-0901-4BAA-8FB3-3DD3938BF1A3}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C61C7B12-0901-4BAA-8FB3-3DD3938BF1A3} = {23BE4664-EB1F-4523-A36E-97E19378A54D}
 	EndGlobalSection
 EndGlobal
