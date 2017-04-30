@@ -2,40 +2,42 @@
 #include <vector>
 #include <queue>
 #include <string>
-#include <unordered_set>
 #include <climits>
 using namespace std;
 typedef pair<int, int> edge;
 typedef pair<int, int> state;
-#define city first
-#define cost second
-#define infinity INT_MAX
+#define city		first
+#define cost		second
+#define infinity	INT_MAX
+
 vector<vector<edge>> graph;
-unordered_set<int >mst;
-int citiesN;
+int					 citiesN;
 
 int calculateNetworkCost() {
 	auto smallestCostFirst = [&](const edge&lhs, const edge&rhs) { return lhs.cost > rhs.cost; };
-	auto isInMst = [&](const int city) { return mst.find(city) != mst.end(); };
-	auto networkCost = 0;
+	auto networkCost       = 0;
 
-	priority_queue<edge, vector< edge>, decltype(smallestCostFirst)> pq(smallestCostFirst);
-	vector<int> pathToCity(citiesN + 1, infinity);
-	pq.push(make_pair(1, 0));
-	pathToCity[1] = 0;
-	while (mst.size() < citiesN) {
-		auto currentCity = pq.top().city;
+	priority_queue<edge, vector<edge>, decltype(smallestCostFirst)> pq(smallestCostFirst);
+	vector<int>		pathToCityCost(citiesN + 1, infinity);
+	vector<bool>	inMst(citiesN + 1, false);
+	auto source			   = 1;
+	pathToCityCost[source] = 0;
+	pq.push({ source, 0 });
+
+	while(!pq.empty())
+	{
+		auto currentCity	 = pq.top().city;
 		auto currentCityCost = pq.top().cost;
 		pq.pop();
-		if(isInMst(currentCity))
+		if(inMst[currentCity])
 			continue;
-		mst.insert(currentCity);
-		networkCost += currentCityCost;
+		inMst[currentCity] = true;
+		networkCost		  += currentCityCost;
 		for(auto edge : graph[currentCity])
 		{
-			if (!isInMst(edge.city) && edge.cost < pathToCity[edge.city])
+			if (!inMst[edge.city] && edge.cost < pathToCityCost[edge.city])
 			{
-				pathToCity[edge.city] = edge.cost;
+				pathToCityCost[edge.city] = edge.cost;
 				pq.push({ edge.city, edge.cost });
 			}
 		}
@@ -52,7 +54,6 @@ int main() {
 	{
 		scanf("%d", &citiesN);
 		graph = vector<vector<edge>>(citiesN + 1);
-		mst.clear();
 		for (int city = 1; city <= citiesN; city++) {
 			scanf("%s", cityName);
 			scanf("%d", &neighbours);
