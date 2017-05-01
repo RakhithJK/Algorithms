@@ -7,9 +7,9 @@
 
 using namespace std;
 typedef pair<int, long> street;
-#define building first
-#define cost second
-#define infinity LONG_MAX / 2
+#define building	first
+#define cost		second
+#define infinity	LONG_MAX / 2
 
 int mainBuildingsN, streetsN;
 int mstRoot;
@@ -17,8 +17,8 @@ vector<vector<street>> graph;
 
 long calculateMstCost()
 {
-	auto smallestCostFirst = [&](const street&lhs, const street&rhs) { return lhs.cost > rhs.cost; };
-	long mstCost = 0;
+	auto smallestCostFirst	= [&](const street&lhs, const street&rhs) { return lhs.cost > rhs.cost; };
+	long mstCost			= 0;
 
 	priority_queue<street, vector<street>, decltype(smallestCostFirst)> pq(smallestCostFirst);
 	vector<long>	costToBuilding(mainBuildingsN + 1, infinity);
@@ -56,9 +56,8 @@ int main()
 		scanf("%d", &costPerFurlong);
 		scanf("%d", &mainBuildingsN);
 		scanf("%d", &streetsN);
-		graph = vector<vector<street>>(mainBuildingsN + 1);
+		graph   = vector<vector<street>>(mainBuildingsN + 1);
 		mstRoot = INT_MAX / 2;
-
 		for(auto s = 0; s < streetsN; s++)
 		{
 			scanf("%d %d %ld", &building1, &building2, &distanceInFurlongs);
