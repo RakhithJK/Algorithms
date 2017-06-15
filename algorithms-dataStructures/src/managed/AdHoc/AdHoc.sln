@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FriendsOfFriends", "FriendsOfFriends\FriendsOfFriends.vcxproj", "{ECF1DF5E-9A72-4D16-8689-FEBE310FF321}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TransformTheExpression", "TransformTheExpression\TransformTheExpression.vcxproj", "{8CC5DB65-57B4-432B-A62C-BAD464434E3A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Parsing", "Parsing", "{726BC280-84CD-494B-89A7-54D94EF6CFB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,8 +25,19 @@ Global
 		{ECF1DF5E-9A72-4D16-8689-FEBE310FF321}.Release|x64.Build.0 = Release|x64
 		{ECF1DF5E-9A72-4D16-8689-FEBE310FF321}.Release|x86.ActiveCfg = Release|Win32
 		{ECF1DF5E-9A72-4D16-8689-FEBE310FF321}.Release|x86.Build.0 = Release|Win32
+		{8CC5DB65-57B4-432B-A62C-BAD464434E3A}.Debug|x64.ActiveCfg = Debug|x64
+		{8CC5DB65-57B4-432B-A62C-BAD464434E3A}.Debug|x64.Build.0 = Debug|x64
+		{8CC5DB65-57B4-432B-A62C-BAD464434E3A}.Debug|x86.ActiveCfg = Debug|Win32
+		{8CC5DB65-57B4-432B-A62C-BAD464434E3A}.Debug|x86.Build.0 = Debug|Win32
+		{8CC5DB65-57B4-432B-A62C-BAD464434E3A}.Release|x64.ActiveCfg = Release|x64
+		{8CC5DB65-57B4-432B-A62C-BAD464434E3A}.Release|x64.Build.0 = Release|x64
+		{8CC5DB65-57B4-432B-A62C-BAD464434E3A}.Release|x86.ActiveCfg = Release|Win32
+		{8CC5DB65-57B4-432B-A62C-BAD464434E3A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8CC5DB65-57B4-432B-A62C-BAD464434E3A} = {726BC280-84CD-494B-89A7-54D94EF6CFB3}
 	EndGlobalSection
 EndGlobal
