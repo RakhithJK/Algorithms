@@ -131,6 +131,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backtracking", "Backtrackin
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AProblemOfBacktracking", "AProblemOfBacktracking\AProblemOfBacktracking.vcxproj", "{835E5B67-EE48-4550-AA67-1086612732DC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Making Jumps", "Making Jumps\Making Jumps.vcxproj", "{795055E6-2134-44E2-A946-8AB524C382D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -621,6 +623,16 @@ Global
 		{835E5B67-EE48-4550-AA67-1086612732DC}.Release|x64.Build.0 = Release|x64
 		{835E5B67-EE48-4550-AA67-1086612732DC}.Release|x86.ActiveCfg = Release|Win32
 		{835E5B67-EE48-4550-AA67-1086612732DC}.Release|x86.Build.0 = Release|Win32
+		{795055E6-2134-44E2-A946-8AB524C382D3}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{795055E6-2134-44E2-A946-8AB524C382D3}.Debug|x64.ActiveCfg = Debug|x64
+		{795055E6-2134-44E2-A946-8AB524C382D3}.Debug|x64.Build.0 = Debug|x64
+		{795055E6-2134-44E2-A946-8AB524C382D3}.Debug|x86.ActiveCfg = Debug|Win32
+		{795055E6-2134-44E2-A946-8AB524C382D3}.Debug|x86.Build.0 = Debug|Win32
+		{795055E6-2134-44E2-A946-8AB524C382D3}.Release|Any CPU.ActiveCfg = Release|Win32
+		{795055E6-2134-44E2-A946-8AB524C382D3}.Release|x64.ActiveCfg = Release|x64
+		{795055E6-2134-44E2-A946-8AB524C382D3}.Release|x64.Build.0 = Release|x64
+		{795055E6-2134-44E2-A946-8AB524C382D3}.Release|x86.ActiveCfg = Release|Win32
+		{795055E6-2134-44E2-A946-8AB524C382D3}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -682,5 +694,6 @@ Global
 		{B64F900F-8B14-4A2F-81F1-7A1B7E2D89EB} = {3F4A39C1-81DA-43B8-877B-E3112C7F379D}
 		{92154A68-B9CD-4CB8-BAB7-13AD7F021A66} = {B34234A2-A04F-42C1-A06B-2EC30287F98F}
 		{835E5B67-EE48-4550-AA67-1086612732DC} = {92154A68-B9CD-4CB8-BAB7-13AD7F021A66}
+		{795055E6-2134-44E2-A946-8AB524C382D3} = {92154A68-B9CD-4CB8-BAB7-13AD7F021A66}
 	EndGlobalSection
 EndGlobal
