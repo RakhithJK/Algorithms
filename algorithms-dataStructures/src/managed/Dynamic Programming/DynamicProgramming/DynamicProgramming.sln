@@ -11,6 +11,16 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Edit distance", "Edit dista
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Princess Farida", "Princess Farida\Princess Farida.vcxproj", "{0FB78D7F-5AE6-4646-A7AB-4BF3AF28D013}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Knapsack", "Knapsack", "{686723A5-E63B-41B2-94B9-906395FA1ECD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "The Knapsack problem", "The Knapsack problem\The Knapsack problem.vcxproj", "{A2349733-4C58-4023-B6EC-806CA1BFE25E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WeightedJobScheduling", "WeightedJobScheduling", "{C909D0A5-782B-4626-9BF4-3C5607360BB5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Activities", "Activities\Activities.vcxproj", "{A3F2764B-3457-4749-9AE4-A23FD2E03E9B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Rent your airplane and make money", "Rent your airplane and make money\Rent your airplane and make money.vcxproj", "{853263E0-F699-4E69-A733-A474B82867D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,8 +61,37 @@ Global
 		{0FB78D7F-5AE6-4646-A7AB-4BF3AF28D013}.Release|x64.Build.0 = Release|x64
 		{0FB78D7F-5AE6-4646-A7AB-4BF3AF28D013}.Release|x86.ActiveCfg = Release|Win32
 		{0FB78D7F-5AE6-4646-A7AB-4BF3AF28D013}.Release|x86.Build.0 = Release|Win32
+		{A2349733-4C58-4023-B6EC-806CA1BFE25E}.Debug|x64.ActiveCfg = Debug|x64
+		{A2349733-4C58-4023-B6EC-806CA1BFE25E}.Debug|x64.Build.0 = Debug|x64
+		{A2349733-4C58-4023-B6EC-806CA1BFE25E}.Debug|x86.ActiveCfg = Debug|Win32
+		{A2349733-4C58-4023-B6EC-806CA1BFE25E}.Debug|x86.Build.0 = Debug|Win32
+		{A2349733-4C58-4023-B6EC-806CA1BFE25E}.Release|x64.ActiveCfg = Release|x64
+		{A2349733-4C58-4023-B6EC-806CA1BFE25E}.Release|x64.Build.0 = Release|x64
+		{A2349733-4C58-4023-B6EC-806CA1BFE25E}.Release|x86.ActiveCfg = Release|Win32
+		{A2349733-4C58-4023-B6EC-806CA1BFE25E}.Release|x86.Build.0 = Release|Win32
+		{A3F2764B-3457-4749-9AE4-A23FD2E03E9B}.Debug|x64.ActiveCfg = Debug|x64
+		{A3F2764B-3457-4749-9AE4-A23FD2E03E9B}.Debug|x64.Build.0 = Debug|x64
+		{A3F2764B-3457-4749-9AE4-A23FD2E03E9B}.Debug|x86.ActiveCfg = Debug|Win32
+		{A3F2764B-3457-4749-9AE4-A23FD2E03E9B}.Debug|x86.Build.0 = Debug|Win32
+		{A3F2764B-3457-4749-9AE4-A23FD2E03E9B}.Release|x64.ActiveCfg = Release|x64
+		{A3F2764B-3457-4749-9AE4-A23FD2E03E9B}.Release|x64.Build.0 = Release|x64
+		{A3F2764B-3457-4749-9AE4-A23FD2E03E9B}.Release|x86.ActiveCfg = Release|Win32
+		{A3F2764B-3457-4749-9AE4-A23FD2E03E9B}.Release|x86.Build.0 = Release|Win32
+		{853263E0-F699-4E69-A733-A474B82867D7}.Debug|x64.ActiveCfg = Debug|x64
+		{853263E0-F699-4E69-A733-A474B82867D7}.Debug|x64.Build.0 = Debug|x64
+		{853263E0-F699-4E69-A733-A474B82867D7}.Debug|x86.ActiveCfg = Debug|Win32
+		{853263E0-F699-4E69-A733-A474B82867D7}.Debug|x86.Build.0 = Debug|Win32
+		{853263E0-F699-4E69-A733-A474B82867D7}.Release|x64.ActiveCfg = Release|x64
+		{853263E0-F699-4E69-A733-A474B82867D7}.Release|x64.Build.0 = Release|x64
+		{853263E0-F699-4E69-A733-A474B82867D7}.Release|x86.ActiveCfg = Release|Win32
+		{853263E0-F699-4E69-A733-A474B82867D7}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A2349733-4C58-4023-B6EC-806CA1BFE25E} = {686723A5-E63B-41B2-94B9-906395FA1ECD}
+		{A3F2764B-3457-4749-9AE4-A23FD2E03E9B} = {C909D0A5-782B-4626-9BF4-3C5607360BB5}
+		{853263E0-F699-4E69-A733-A474B82867D7} = {C909D0A5-782B-4626-9BF4-3C5607360BB5}
 	EndGlobalSection
 EndGlobal
