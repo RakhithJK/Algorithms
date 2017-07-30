@@ -12,18 +12,17 @@ typedef pair<int, int> party;
 typedef pair<int, int> result;
 
 result undefinedResult = { 0, 0 };
-#define entraceFee first
-#define fun second
 
-#define infinity INT_MAX - 1
-#define money 501
-#define partiesCount 100
+#define entraceFee		first
+#define fun				second
 
-vector<party> parties;
+#define infinity		INT_MAX - 1
+#define money			501
+#define partiesCount	100
 
-int availableMoney, partiesN;
-
-result maxFunUptoPartyWithMoney[money][partiesCount];
+int				 availableMoney, partiesN;
+vector<party>	 parties;
+result			 maxFunUptoPartyWithMoney[money][partiesCount];
 
 result computeOptimalScheduleUptoParty(int currentParty = partiesN - 1, int availableMoney = ::availableMoney)
 {
@@ -33,21 +32,21 @@ result computeOptimalScheduleUptoParty(int currentParty = partiesN - 1, int avai
 	if (maxFunUptoPartyWithMoney[availableMoney][currentParty] != undefinedResult)
 		return maxFunUptoPartyWithMoney[availableMoney][currentParty];
 
-	result subsolutionExcludingCurrent = computeOptimalScheduleUptoParty(currentParty - 1, availableMoney);
-	result subsolutionIncludingCurrent = { infinity, -1 };
-	result optimum = subsolutionExcludingCurrent;
+	result scheduleExcludingCurrent = computeOptimalScheduleUptoParty(currentParty - 1, availableMoney);
+	result scheduleIncludingCurrent = { infinity, -1 };
+	result optimum = scheduleExcludingCurrent;
 
 	if (parties[currentParty].entraceFee <= availableMoney)
 	{
-		subsolutionIncludingCurrent = computeOptimalScheduleUptoParty(currentParty - 1, availableMoney - parties[currentParty].entraceFee);
-		subsolutionIncludingCurrent.fun += parties[currentParty].fun;
-		subsolutionIncludingCurrent.entraceFee += parties[currentParty].entraceFee;
+		scheduleIncludingCurrent = computeOptimalScheduleUptoParty(currentParty - 1, availableMoney - parties[currentParty].entraceFee);
+		scheduleIncludingCurrent.fun += parties[currentParty].fun;
+		scheduleIncludingCurrent.entraceFee += parties[currentParty].entraceFee;
 	}
 
-	if (subsolutionIncludingCurrent.fun > optimum.fun)
-		optimum = subsolutionIncludingCurrent;
-	if (subsolutionIncludingCurrent.fun == optimum.fun && subsolutionIncludingCurrent.entraceFee < optimum.entraceFee)
-		optimum = subsolutionIncludingCurrent;
+	if (scheduleIncludingCurrent.fun > optimum.fun)
+		optimum = scheduleIncludingCurrent;
+	if (scheduleIncludingCurrent.fun == optimum.fun && scheduleIncludingCurrent.entraceFee < optimum.entraceFee)
+		optimum = scheduleIncludingCurrent;
 		
 	return maxFunUptoPartyWithMoney[availableMoney][currentParty] = optimum;
 }
