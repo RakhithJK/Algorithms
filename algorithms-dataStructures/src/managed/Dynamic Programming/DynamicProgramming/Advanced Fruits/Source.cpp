@@ -61,7 +61,6 @@ string reconstructRecursively(int leftLength = firstFruit.size(), int rightLengt
 	}
 
 	if(leftLength > 0)
-	
 		return reconstructRecursively(leftLength - 1, rightLength - 1, aggregate + firstFruit[leftLength - 1]);
 	
 	if(rightLength > 0)	
@@ -74,7 +73,6 @@ int main()
 {
 	while(cin >> firstFruit && cin >> secondFruit)
 	{
-
 		memset(supersequenceLengthOf, -1, sizeof supersequenceLengthOf);
 		memset(stepOf, undefined, sizeof stepOf);
 
