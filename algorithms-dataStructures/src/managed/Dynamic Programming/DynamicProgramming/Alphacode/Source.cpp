@@ -21,7 +21,7 @@ bigint computeNumberOfDecodings(int currentIndex = sequence.size() - 1) {
 	if (currentIndex == 1 && sequence[currentIndex])
 	{
 		auto numberAsGroup = asNumber(sequence[0]) * 10 + asNumber(sequence[1]);
-		if (numberAsGroup > 9 && numberAsGroup <= 26 && numberAsGroup % 10 != 0)
+		if (numberAsGroup > 9 && numberAsGroup <= 26 && numberAsGroup % 10 != 0) // last one cannot be 20, others can be
 			 return dp[currentIndex] = 2;
 
 		return dp[currentIndex] = 1;
