@@ -69,6 +69,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Menu", "Menu\Menu.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lets go to the cinema", "Lets go to the cinema\Lets go to the cinema.vcxproj", "{39C215FD-EF5D-448E-AAC1-4BBB4B2D842F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Wise And Miser", "Wise And Miser\Wise And Miser.vcxproj", "{4AF181FA-53C0-4E6E-B1E0-186F6CEC8CC5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -285,6 +287,14 @@ Global
 		{39C215FD-EF5D-448E-AAC1-4BBB4B2D842F}.Release|x64.Build.0 = Release|x64
 		{39C215FD-EF5D-448E-AAC1-4BBB4B2D842F}.Release|x86.ActiveCfg = Release|Win32
 		{39C215FD-EF5D-448E-AAC1-4BBB4B2D842F}.Release|x86.Build.0 = Release|Win32
+		{4AF181FA-53C0-4E6E-B1E0-186F6CEC8CC5}.Debug|x64.ActiveCfg = Debug|x64
+		{4AF181FA-53C0-4E6E-B1E0-186F6CEC8CC5}.Debug|x64.Build.0 = Debug|x64
+		{4AF181FA-53C0-4E6E-B1E0-186F6CEC8CC5}.Debug|x86.ActiveCfg = Debug|Win32
+		{4AF181FA-53C0-4E6E-B1E0-186F6CEC8CC5}.Debug|x86.Build.0 = Debug|Win32
+		{4AF181FA-53C0-4E6E-B1E0-186F6CEC8CC5}.Release|x64.ActiveCfg = Release|x64
+		{4AF181FA-53C0-4E6E-B1E0-186F6CEC8CC5}.Release|x64.Build.0 = Release|x64
+		{4AF181FA-53C0-4E6E-B1E0-186F6CEC8CC5}.Release|x86.ActiveCfg = Release|Win32
+		{4AF181FA-53C0-4E6E-B1E0-186F6CEC8CC5}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
