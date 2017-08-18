@@ -73,6 +73,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Wise And Miser", "Wise And 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Maximum Wood Cutter", "Maximum Wood Cutter\Maximum Wood Cutter.vcxproj", "{6325C22E-709C-414D-B77E-D87796D18E97}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tourist", "Tourist\Tourist.vcxproj", "{5BADF885-20C0-43F0-8CFD-77BC5C6ABC88}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -305,6 +307,14 @@ Global
 		{6325C22E-709C-414D-B77E-D87796D18E97}.Release|x64.Build.0 = Release|x64
 		{6325C22E-709C-414D-B77E-D87796D18E97}.Release|x86.ActiveCfg = Release|Win32
 		{6325C22E-709C-414D-B77E-D87796D18E97}.Release|x86.Build.0 = Release|Win32
+		{5BADF885-20C0-43F0-8CFD-77BC5C6ABC88}.Debug|x64.ActiveCfg = Debug|x64
+		{5BADF885-20C0-43F0-8CFD-77BC5C6ABC88}.Debug|x64.Build.0 = Debug|x64
+		{5BADF885-20C0-43F0-8CFD-77BC5C6ABC88}.Debug|x86.ActiveCfg = Debug|Win32
+		{5BADF885-20C0-43F0-8CFD-77BC5C6ABC88}.Debug|x86.Build.0 = Debug|Win32
+		{5BADF885-20C0-43F0-8CFD-77BC5C6ABC88}.Release|x64.ActiveCfg = Release|x64
+		{5BADF885-20C0-43F0-8CFD-77BC5C6ABC88}.Release|x64.Build.0 = Release|x64
+		{5BADF885-20C0-43F0-8CFD-77BC5C6ABC88}.Release|x86.ActiveCfg = Release|Win32
+		{5BADF885-20C0-43F0-8CFD-77BC5C6ABC88}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
