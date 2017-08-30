@@ -89,6 +89,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fool the Police", "Fool the
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TreatsForCows", "TreatsForCows\TreatsForCows.vcxproj", "{89D95D9E-573C-47EE-AF7F-F577A73B1E22}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Two Ends", "Two Ends\Two Ends.vcxproj", "{7ECE2AF6-9074-47EC-ABC8-23C2D616BDF6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -385,6 +387,14 @@ Global
 		{89D95D9E-573C-47EE-AF7F-F577A73B1E22}.Release|x64.Build.0 = Release|x64
 		{89D95D9E-573C-47EE-AF7F-F577A73B1E22}.Release|x86.ActiveCfg = Release|Win32
 		{89D95D9E-573C-47EE-AF7F-F577A73B1E22}.Release|x86.Build.0 = Release|Win32
+		{7ECE2AF6-9074-47EC-ABC8-23C2D616BDF6}.Debug|x64.ActiveCfg = Debug|x64
+		{7ECE2AF6-9074-47EC-ABC8-23C2D616BDF6}.Debug|x64.Build.0 = Debug|x64
+		{7ECE2AF6-9074-47EC-ABC8-23C2D616BDF6}.Debug|x86.ActiveCfg = Debug|Win32
+		{7ECE2AF6-9074-47EC-ABC8-23C2D616BDF6}.Debug|x86.Build.0 = Debug|Win32
+		{7ECE2AF6-9074-47EC-ABC8-23C2D616BDF6}.Release|x64.ActiveCfg = Release|x64
+		{7ECE2AF6-9074-47EC-ABC8-23C2D616BDF6}.Release|x64.Build.0 = Release|x64
+		{7ECE2AF6-9074-47EC-ABC8-23C2D616BDF6}.Release|x86.ActiveCfg = Release|Win32
+		{7ECE2AF6-9074-47EC-ABC8-23C2D616BDF6}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
