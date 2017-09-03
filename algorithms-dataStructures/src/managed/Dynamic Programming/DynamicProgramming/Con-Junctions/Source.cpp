@@ -39,7 +39,7 @@ int computeMinLights(int currentJunction, bool shouldLightJunction)
 		return lookup[currentJunction][shouldLightJunction];
 
 	visitedInCurrentPath[currentJunction]		= true;
-	ways[currentJunction][shouldLightJunction] = 1;
+	ways[currentJunction][shouldLightJunction]  = 1;
 
 	if (shouldLightJunction)
 	{
