@@ -48,7 +48,7 @@ int calculateMaxDishes()
 }
 
 int main()
-{
+{ 
 	int tests, currentDishFood;
 	scanf("%d", &tests);
 	while (tests--)
@@ -62,7 +62,7 @@ int main()
 			scanf("%d", &racks[i].dishesN);
 			for (auto j = 0; j < racks[i].dishesN; j++)
 			{
-				scanf("%d", currentDishFood);
+				scanf("%d", &currentDishFood);
 				racks[i].dishesSum += currentDishFood;
 			}
 		}

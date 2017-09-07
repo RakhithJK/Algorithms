@@ -15,14 +15,13 @@ typedef unsigned long long bigint;
 #define infinity INT_MAX - 1
 int minimumEditDistance[maxStringLength][maxStringLength];
 
-
 inline int min(int x, int y, int z)
 {
 	return min(min(x, y), z);
 }
 
 // bottom-up
-int calculateMinimumEditDistance(string& lhs, string& rhs)
+int calculateMinimumEditDistance_bottomUp(string& lhs, string& rhs)
 {
 	auto lhsLength = lhs.size();
 	auto rhsLength = rhs.size();
@@ -54,20 +53,68 @@ int calculateMinimumEditDistance(string& lhs, string& rhs)
 	return minimumEditDistance[lhsLength][rhsLength];
 }
 
+string source, target;
+int calculateMinimumEditDistance_topDown(int sourcePrefixEnd, int targetPrefixEnd)
+{
+	if (!sourcePrefixEnd)
+		return minimumEditDistance[sourcePrefixEnd][targetPrefixEnd] = targetPrefixEnd;
+	if (!targetPrefixEnd)
+		return minimumEditDistance[sourcePrefixEnd][targetPrefixEnd] = sourcePrefixEnd;
+
+	if (minimumEditDistance[sourcePrefixEnd][targetPrefixEnd] != infinity)
+		return minimumEditDistance[sourcePrefixEnd][targetPrefixEnd];
+
+	auto delta = source[sourcePrefixEnd - 1] == target[targetPrefixEnd - 1] ? 0 : 1;
+
+	return minimumEditDistance[sourcePrefixEnd][targetPrefixEnd] =
+		min(
+			calculateMinimumEditDistance_topDown(sourcePrefixEnd, targetPrefixEnd - 1) + 1,
+			calculateMinimumEditDistance_topDown(sourcePrefixEnd - 1, targetPrefixEnd) + 1,
+			calculateMinimumEditDistance_topDown(sourcePrefixEnd - 1, targetPrefixEnd - 1) + delta
+		);
+}
+
+int calculateMinimumEditDistance_topDown_withStrings(string sourcePrefix, string targetPrefix)
+{
+	if (!sourcePrefix.length())
+		return minimumEditDistance[sourcePrefix.length()][targetPrefix.length()] = targetPrefix.length();
+	if (!targetPrefix.length())
+		return minimumEditDistance[sourcePrefix.length()][targetPrefix.length()] = sourcePrefix.length();
+	if (minimumEditDistance[sourcePrefix.length()][targetPrefix.length()] != infinity)
+		return minimumEditDistance[sourcePrefix.length()][targetPrefix.length()];
+
+	auto prefixOfSourcePrefix = sourcePrefix.substr(0, sourcePrefix.length() - 1);
+	auto prefixOfTargetPrefix = targetPrefix.substr(0, targetPrefix.length() - 1);
+	auto lastLetterChangeCost = *(sourcePrefix.end() - 1) == *(targetPrefix.end() - 1) ? 0 : 1;
+
+	printf("source=%s target=%s \n", sourcePrefix.c_str(), targetPrefix.c_str());
+
+	return minimumEditDistance[sourcePrefix.length()][targetPrefix.length()] =
+		min(
+			calculateMinimumEditDistance_topDown_withStrings(sourcePrefix, prefixOfTargetPrefix) + 1,
+			calculateMinimumEditDistance_topDown_withStrings(prefixOfSourcePrefix, targetPrefix) + 1,
+			calculateMinimumEditDistance_topDown_withStrings(prefixOfSourcePrefix, prefixOfTargetPrefix) + lastLetterChangeCost
+		);
+}
+
 int main()
 {
 	ios::sync_with_stdio(false);
 	cin.tie(nullptr);
 	cout.tie(nullptr);
 
-	string lhs, rhs;
 	int tests;
 	cin >> tests;
 	while (tests--)
 	{
 		memset(minimumEditDistance, 0, sizeof minimumEditDistance);
-		cin >> lhs >> rhs;
-		cout << calculateMinimumEditDistance(lhs, rhs) << endl;
+		cin >> source >> target;
+
+		for (auto i = 0; i <= source.size(); i++)
+			for (auto j = 0; j <= target.size(); j++)
+				minimumEditDistance[i][j] = infinity;
+
+		cout << calculateMinimumEditDistance_topDown_withStrings(source, target) << endl;
 	}
 	return 0;
 }

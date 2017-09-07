@@ -22,7 +22,7 @@ int travellingTimeFromTo[maxStations][maxStations];
 int tollFromTo[maxStations][maxStations];
 int stationsN, availableTime;
 
-pair<int,int> calculateMaxTollFromTo_dijktra()
+pair<int,int> calculateMaxTollFromTo_dijkstra()
 {
 	auto stateComparer = [](const currentState lhs, const currentState rhs)
 	{
@@ -34,11 +34,10 @@ pair<int,int> calculateMaxTollFromTo_dijktra()
 
 	int visitedStates[maxStations][maxTime];
 	memset(visitedStates, false, sizeof visitedStates);
-
 	pq.push({ 0,{0,0} });
-
 	auto minimumToll = infinity;
 	auto minimumTime = infinity;
+
 	while(!pq.empty())
 	{
 		auto currentStation = pq.top().destination;
@@ -65,8 +64,14 @@ pair<int,int> calculateMaxTollFromTo_dijktra()
 			if(currentStation == adjacentStation)
 				continue;
 
-			currentState nextState = { adjacentStation,{ elapsedTime + travellingTimeFromTo[currentStation][adjacentStation], currentTols + tollFromTo[currentStation][adjacentStation] } };
-			
+			currentState nextState = { 
+				adjacentStation, 
+				{ 
+					elapsedTime + travellingTimeFromTo[currentStation][adjacentStation], 
+					currentTols + tollFromTo[currentStation][adjacentStation]
+				}
+			};
+
 			if (visitedStates[nextState.destination][nextState.time])
 				continue;
 			if (nextState.time <= availableTime)
@@ -78,6 +83,65 @@ pair<int,int> calculateMaxTollFromTo_dijktra()
 	return { minimumToll, minimumTime };
 }
 
+int minAmountOfTolsForStationAtTime[maxStations][maxTime];
+int visitedStates[maxStations][maxTime];
+
+void calculateMaxTollFromTo_recursively(int currentStation, int elapsedTime, int tolsCost)
+{
+	if (elapsedTime > availableTime || visitedStates[currentStation][elapsedTime])
+		return;
+
+	visitedStates[currentStation][elapsedTime] = true;
+
+	if (currentStation == stationsN - 1)
+	{		
+		minAmountOfTolsForStationAtTime[currentStation][elapsedTime] = 
+			minAmountOfTolsForStationAtTime[currentStation][elapsedTime] != -1 ?
+			min(minAmountOfTolsForStationAtTime[currentStation][elapsedTime], tolsCost) :
+			tolsCost;
+
+		visitedStates[currentStation][elapsedTime] = false;
+	}
+
+	for (auto adjacentStation = 0; adjacentStation < stationsN; adjacentStation++)
+	{
+		if (currentStation == adjacentStation)
+			continue;
+
+		currentState nextState = {
+			adjacentStation,
+			{
+				elapsedTime + travellingTimeFromTo[currentStation][adjacentStation],
+				tolsCost + tollFromTo[currentStation][adjacentStation]
+			}
+		};
+
+		if (nextState.time <= availableTime)
+			calculateMaxTollFromTo_recursively(nextState.destination, nextState.time, nextState.tols);
+	}
+}
+
+pair<int,int> calculateMaxTollFromTo_recursively()
+{
+	memset(minAmountOfTolsForStationAtTime, -1, sizeof minAmountOfTolsForStationAtTime);
+	memset(visitedStates, false, sizeof visitedStates);
+	calculateMaxTollFromTo_recursively(0,0,0);
+
+	auto minimumToll = infinity;
+	auto minimumTime = infinity;
+
+	for (auto elapsedTime = 0; elapsedTime <= availableTime; elapsedTime++)
+	{
+		if(minAmountOfTolsForStationAtTime[stationsN - 1][elapsedTime] == -1)
+			continue;
+		if(minAmountOfTolsForStationAtTime[stationsN - 1][elapsedTime] < minimumToll)
+		{
+			minimumToll = minAmountOfTolsForStationAtTime[stationsN - 1][elapsedTime];
+			minimumTime = elapsedTime;
+		}
+	}
+	return { minimumToll, minimumTime };
+}
 int main()
 {
 	while (scanf("%d %d", &stationsN, &availableTime) && stationsN && availableTime)
@@ -91,7 +155,8 @@ int main()
 				scanf("%d", &tollFromTo[sourceStation][destinationStation]);
 
 
-		auto solution = calculateMaxTollFromTo_dijktra();
+		auto solution = calculateMaxTollFromTo_dijkstra();
+
 		printf("%d %d\n", solution.first, solution.second);
 	}
 	return 0;
