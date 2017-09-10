@@ -12,9 +12,9 @@ using namespace std;
 
 enum position
 {
-	fire = 0,
+	fire  = 0,
 	water = 1,
-	air = 2
+	air   = 2
 };
 
 map<position, vector<position>> possiblePositionSwitches = {
@@ -24,9 +24,9 @@ map<position, vector<position>> possiblePositionSwitches = {
 };
 
 map<position, pair<int,int>> switchCost = {
-	{ air, { 3, 2 }},
-	{ water, { -5, -10 }},
-	{ fire, {-20, 5}}
+	{ air,	 { 3, 2    } },
+	{ water, { -5, -10 } },
+	{ fire,  {-20, 5   } }
 };
 
 int dp[maxHealthArmor][maxHealthArmor][3];
