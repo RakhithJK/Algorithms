@@ -111,6 +111,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Die Hard", "Die Hard\Die Ha
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Jednakost", "Jednakost\Jednakost.vcxproj", "{D128AD6C-B11F-494F-9E10-628FD5A82A45}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CODERE3 - Coder Express 3!!", "CODERE3 - Coder Express 3!!\CODERE3 - Coder Express 3!!.vcxproj", "{65818062-5023-4451-AEB0-9BEBBC8D3781}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -479,6 +481,14 @@ Global
 		{D128AD6C-B11F-494F-9E10-628FD5A82A45}.Release|x64.Build.0 = Release|x64
 		{D128AD6C-B11F-494F-9E10-628FD5A82A45}.Release|x86.ActiveCfg = Release|Win32
 		{D128AD6C-B11F-494F-9E10-628FD5A82A45}.Release|x86.Build.0 = Release|Win32
+		{65818062-5023-4451-AEB0-9BEBBC8D3781}.Debug|x64.ActiveCfg = Debug|x64
+		{65818062-5023-4451-AEB0-9BEBBC8D3781}.Debug|x64.Build.0 = Debug|x64
+		{65818062-5023-4451-AEB0-9BEBBC8D3781}.Debug|x86.ActiveCfg = Debug|Win32
+		{65818062-5023-4451-AEB0-9BEBBC8D3781}.Debug|x86.Build.0 = Debug|Win32
+		{65818062-5023-4451-AEB0-9BEBBC8D3781}.Release|x64.ActiveCfg = Release|x64
+		{65818062-5023-4451-AEB0-9BEBBC8D3781}.Release|x64.Build.0 = Release|x64
+		{65818062-5023-4451-AEB0-9BEBBC8D3781}.Release|x86.ActiveCfg = Release|Win32
+		{65818062-5023-4451-AEB0-9BEBBC8D3781}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
