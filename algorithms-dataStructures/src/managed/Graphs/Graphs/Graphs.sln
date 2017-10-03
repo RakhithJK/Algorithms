@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Buglife", "Buglife\Buglife.vcxproj", "{E7ACB87E-854D-4727-B0D1-6B57CD83BF38}"
 EndProject
@@ -146,6 +146,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Potholers", "Potholers\Potholers.vcxproj", "{AFDA55FC-4EDE-45F9-BF4D-2A7EA43FF95E}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Total Flow", "Total Flow\Total Flow.vcxproj", "{44D61813-8456-4521-A15F-4642A0397473}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Edge-disjoint path", "Edge-disjoint path", "{E023517C-6949-42BC-895F-0106D39FD023}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Intergalactic Map", "Intergalactic Map\Intergalactic Map.vcxproj", "{F618DDBC-1286-4629-8B91-8BA140569CD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -707,6 +711,17 @@ Global
 		{44D61813-8456-4521-A15F-4642A0397473}.Release|x64.Build.0 = Release|x64
 		{44D61813-8456-4521-A15F-4642A0397473}.Release|x86.ActiveCfg = Release|Win32
 		{44D61813-8456-4521-A15F-4642A0397473}.Release|x86.Build.0 = Release|Win32
+		{F618DDBC-1286-4629-8B91-8BA140569CD9}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{F618DDBC-1286-4629-8B91-8BA140569CD9}.Debug|Any CPU.Build.0 = Debug|Win32
+		{F618DDBC-1286-4629-8B91-8BA140569CD9}.Debug|x64.ActiveCfg = Debug|x64
+		{F618DDBC-1286-4629-8B91-8BA140569CD9}.Debug|x64.Build.0 = Debug|x64
+		{F618DDBC-1286-4629-8B91-8BA140569CD9}.Debug|x86.ActiveCfg = Debug|Win32
+		{F618DDBC-1286-4629-8B91-8BA140569CD9}.Debug|x86.Build.0 = Debug|Win32
+		{F618DDBC-1286-4629-8B91-8BA140569CD9}.Release|Any CPU.ActiveCfg = Release|Win32
+		{F618DDBC-1286-4629-8B91-8BA140569CD9}.Release|x64.ActiveCfg = Release|x64
+		{F618DDBC-1286-4629-8B91-8BA140569CD9}.Release|x64.Build.0 = Release|x64
+		{F618DDBC-1286-4629-8B91-8BA140569CD9}.Release|x86.ActiveCfg = Release|Win32
+		{F618DDBC-1286-4629-8B91-8BA140569CD9}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -775,5 +790,10 @@ Global
 		{D08981AC-06E5-40D8-8D4E-8084D74983A4} = {F4A85EB1-2E90-45D0-8C98-E5D21659B308}
 		{AFDA55FC-4EDE-45F9-BF4D-2A7EA43FF95E} = {61541234-34E5-4364-9733-475D09F2EBB5}
 		{44D61813-8456-4521-A15F-4642A0397473} = {61541234-34E5-4364-9733-475D09F2EBB5}
+		{E023517C-6949-42BC-895F-0106D39FD023} = {61541234-34E5-4364-9733-475D09F2EBB5}
+		{F618DDBC-1286-4629-8B91-8BA140569CD9} = {E023517C-6949-42BC-895F-0106D39FD023}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A12BCC72-7EEB-4728-BCA0-8D16773512DB}
 	EndGlobalSection
 EndGlobal
