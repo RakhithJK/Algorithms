@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fibosum", "Fibosum\Fibosum.vcxproj", "{1C64F726-12A1-4D63-91F2-3190DBC85251}"
 EndProject
@@ -112,6 +112,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Jednakost", "Jednakost\Jednakost.vcxproj", "{D128AD6C-B11F-494F-9E10-628FD5A82A45}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CODERE3 - Coder Express 3!!", "CODERE3 - Coder Express 3!!\CODERE3 - Coder Express 3!!.vcxproj", "{65818062-5023-4451-AEB0-9BEBBC8D3781}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Through the troops", "Through the troops\Through the troops.vcxproj", "{F2AA7C53-AFDF-4AE0-A19C-24A3D5DDD45B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -489,6 +491,14 @@ Global
 		{65818062-5023-4451-AEB0-9BEBBC8D3781}.Release|x64.Build.0 = Release|x64
 		{65818062-5023-4451-AEB0-9BEBBC8D3781}.Release|x86.ActiveCfg = Release|Win32
 		{65818062-5023-4451-AEB0-9BEBBC8D3781}.Release|x86.Build.0 = Release|Win32
+		{F2AA7C53-AFDF-4AE0-A19C-24A3D5DDD45B}.Debug|x64.ActiveCfg = Debug|x64
+		{F2AA7C53-AFDF-4AE0-A19C-24A3D5DDD45B}.Debug|x64.Build.0 = Debug|x64
+		{F2AA7C53-AFDF-4AE0-A19C-24A3D5DDD45B}.Debug|x86.ActiveCfg = Debug|Win32
+		{F2AA7C53-AFDF-4AE0-A19C-24A3D5DDD45B}.Debug|x86.Build.0 = Debug|Win32
+		{F2AA7C53-AFDF-4AE0-A19C-24A3D5DDD45B}.Release|x64.ActiveCfg = Release|x64
+		{F2AA7C53-AFDF-4AE0-A19C-24A3D5DDD45B}.Release|x64.Build.0 = Release|x64
+		{F2AA7C53-AFDF-4AE0-A19C-24A3D5DDD45B}.Release|x86.ActiveCfg = Release|Win32
+		{F2AA7C53-AFDF-4AE0-A19C-24A3D5DDD45B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -520,5 +530,8 @@ Global
 		{94234C87-B4FB-41A3-8EEF-94916B6FA8ED} = {54B22E54-B57C-4C78-83E3-6B6FB7C2A9CE}
 		{EBC40827-9666-4BD5-A03B-881959104382} = {51A9805F-31DB-47F1-96C7-A125F7F06623}
 		{51A9805F-31DB-47F1-96C7-A125F7F06623} = {626D1BA8-E9A0-4847-8151-F976CB2F815B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {484ADCE3-4A3C-4A97-BD09-DDE38EBC6004}
 	EndGlobalSection
 EndGlobal
