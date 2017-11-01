@@ -119,6 +119,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CoinChange", "CoinChange", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "No Change", "No Change\No Change.vcxproj", "{A12FAAE3-179C-4AE0-B9AC-C5D362BF820E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tower of Babylon", "Tower of Babylon\Tower of Babylon.vcxproj", "{7CFD7532-167F-4945-8F18-2A60E8479D5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -511,6 +513,14 @@ Global
 		{A12FAAE3-179C-4AE0-B9AC-C5D362BF820E}.Release|x64.Build.0 = Release|x64
 		{A12FAAE3-179C-4AE0-B9AC-C5D362BF820E}.Release|x86.ActiveCfg = Release|Win32
 		{A12FAAE3-179C-4AE0-B9AC-C5D362BF820E}.Release|x86.Build.0 = Release|Win32
+		{7CFD7532-167F-4945-8F18-2A60E8479D5B}.Debug|x64.ActiveCfg = Debug|x64
+		{7CFD7532-167F-4945-8F18-2A60E8479D5B}.Debug|x64.Build.0 = Debug|x64
+		{7CFD7532-167F-4945-8F18-2A60E8479D5B}.Debug|x86.ActiveCfg = Debug|Win32
+		{7CFD7532-167F-4945-8F18-2A60E8479D5B}.Debug|x86.Build.0 = Debug|Win32
+		{7CFD7532-167F-4945-8F18-2A60E8479D5B}.Release|x64.ActiveCfg = Release|x64
+		{7CFD7532-167F-4945-8F18-2A60E8479D5B}.Release|x64.Build.0 = Release|x64
+		{7CFD7532-167F-4945-8F18-2A60E8479D5B}.Release|x86.ActiveCfg = Release|Win32
+		{7CFD7532-167F-4945-8F18-2A60E8479D5B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
