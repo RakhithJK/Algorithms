@@ -121,6 +121,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "No Change", "No Change\No C
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tower of Babylon", "Tower of Babylon\Tower of Babylon.vcxproj", "{7CFD7532-167F-4945-8F18-2A60E8479D5B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bitmasking", "Bitmasking", "{BDB5C21D-A4F3-4F3F-B624-74258792DFF0}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Assign", "Assign\Assign.vcxproj", "{EF8AB69D-0EA9-4A94-ADAC-7A4C00C201DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -521,6 +525,14 @@ Global
 		{7CFD7532-167F-4945-8F18-2A60E8479D5B}.Release|x64.Build.0 = Release|x64
 		{7CFD7532-167F-4945-8F18-2A60E8479D5B}.Release|x86.ActiveCfg = Release|Win32
 		{7CFD7532-167F-4945-8F18-2A60E8479D5B}.Release|x86.Build.0 = Release|Win32
+		{EF8AB69D-0EA9-4A94-ADAC-7A4C00C201DC}.Debug|x64.ActiveCfg = Debug|x64
+		{EF8AB69D-0EA9-4A94-ADAC-7A4C00C201DC}.Debug|x64.Build.0 = Debug|x64
+		{EF8AB69D-0EA9-4A94-ADAC-7A4C00C201DC}.Debug|x86.ActiveCfg = Debug|Win32
+		{EF8AB69D-0EA9-4A94-ADAC-7A4C00C201DC}.Debug|x86.Build.0 = Debug|Win32
+		{EF8AB69D-0EA9-4A94-ADAC-7A4C00C201DC}.Release|x64.ActiveCfg = Release|x64
+		{EF8AB69D-0EA9-4A94-ADAC-7A4C00C201DC}.Release|x64.Build.0 = Release|x64
+		{EF8AB69D-0EA9-4A94-ADAC-7A4C00C201DC}.Release|x86.ActiveCfg = Release|Win32
+		{EF8AB69D-0EA9-4A94-ADAC-7A4C00C201DC}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -553,6 +565,7 @@ Global
 		{EBC40827-9666-4BD5-A03B-881959104382} = {51A9805F-31DB-47F1-96C7-A125F7F06623}
 		{51A9805F-31DB-47F1-96C7-A125F7F06623} = {626D1BA8-E9A0-4847-8151-F976CB2F815B}
 		{A12FAAE3-179C-4AE0-B9AC-C5D362BF820E} = {B2C8A2A5-8CBE-4A0C-8B49-DE0AEB688388}
+		{EF8AB69D-0EA9-4A94-ADAC-7A4C00C201DC} = {BDB5C21D-A4F3-4F3F-B624-74258792DFF0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {484ADCE3-4A3C-4A97-BD09-DDE38EBC6004}

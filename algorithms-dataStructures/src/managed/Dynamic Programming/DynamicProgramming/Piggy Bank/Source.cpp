@@ -25,24 +25,24 @@ int emptyWeight, fullWeight, coinsN;
 
 vector<coin> coinTypes;
 
-int dp[10100];
+int maxTowerHeightUpto[10100];
 
 int calculateMinSizeForWeight_topDown(int availableWeight)
 {
 	if (availableWeight <= 0)
 		return 0;
 	
-	if (dp[availableWeight] != 0)
-		return dp[availableWeight];
+	if (maxTowerHeightUpto[availableWeight] != 0)
+		return maxTowerHeightUpto[availableWeight];
 
-	dp[availableWeight] = infinity;
+	maxTowerHeightUpto[availableWeight] = infinity;
 	for (auto coin : coinTypes)
 	{
  		if (availableWeight - coin.weight < 0)
 			continue;
-		dp[availableWeight] = min(dp[availableWeight], calculateMinSizeForWeight_topDown(availableWeight - coin.weight) + coin.value);
+		maxTowerHeightUpto[availableWeight] = min(maxTowerHeightUpto[availableWeight], calculateMinSizeForWeight_topDown(availableWeight - coin.weight) + coin.value);
 	}
-	return dp[availableWeight];
+	return maxTowerHeightUpto[availableWeight];
 }
 
 
@@ -60,7 +60,7 @@ int main() {
 
 		if (emptyWeight > fullWeight)
 			printf("This is impossible.\n");
-		memset(dp, false, sizeof dp);
+		memset(maxTowerHeightUpto, false, sizeof maxTowerHeightUpto);
 
 		auto sol = calculateMinSizeForWeight_topDown(fullWeight - emptyWeight);
 		if(sol == infinity)
