@@ -14,10 +14,10 @@ const int colDirections[] = { 1, 0, 0, -1};
 typedef long long bigint;
 using namespace std;
 
-int maxDimension;
-char terrain[maxSize][maxSize];
-bigint dp[maxSize][maxSize];
-bool visited[maxSize][maxSize];
+int    maxDimension;
+char   terrain[maxSize][maxSize];
+bigint waysFrom[maxSize][maxSize];
+bool   visited[maxSize][maxSize];
 
 inline bool isInMap(int row, int col)
 {
@@ -31,8 +31,8 @@ bigint computeWaysFrom(int row, int col)
 	if (row == maxDimension - 1 && col == maxDimension - 1)
 		return 1;
 
-	if (dp[row][col] != -1)
-		return dp[row][col];
+	if (waysFrom[row][col] != -1)
+		return waysFrom[row][col];
 
 	bigint subWays = 0;
 
@@ -45,7 +45,7 @@ bigint computeWaysFrom(int row, int col)
 			subWays = (subWays + computeWaysFrom(nextRow, nextCol)) % mod;
 	}
 
-	return dp[row][col] = subWays;
+	return waysFrom[row][col] = subWays;
 }
 
 bool doesAllDirectionsPathExist()
@@ -82,7 +82,7 @@ int main()
 	scanf("%d", &maxDimension);
 	
 	memset(visited, false, sizeof visited);
-	memset(dp, -1, sizeof dp);
+	memset(waysFrom, -1, sizeof waysFrom);
 
 	for (auto row = 0; row < maxDimension; row++)
 		scanf("%s", &terrain[row]);
