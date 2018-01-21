@@ -23,7 +23,7 @@ array<int, maxMask> dp;
 int profficiencyOfPlayer[maxPlayers][maxPlayers];
 
 inline int isPositionAlreadyTaken(int mask, int position) { return mask & (1 << position); }
-inline int markPositionInMaskAsTaken(int mask, int position) { return mask | (1 << position); }
+inline int markPositionInMaskAsVisited(int mask, int position) { return mask | (1 << position); }
 
 int getStrongestLineupPower(int currentLineupMask, int player = 0)
 {
@@ -47,7 +47,7 @@ int getStrongestLineupPower(int currentLineupMask, int player = 0)
 		currentSubLineupMaxPower = max(
 			currentSubLineupMaxPower,
 			profficiencyOfPlayer[currentPlayer][position] + getStrongestLineupPower(
-				markPositionInMaskAsTaken(currentLineupMask, position),
+				markPositionInMaskAsVisited(currentLineupMask, position),
 				player + 1
 			)
 		);

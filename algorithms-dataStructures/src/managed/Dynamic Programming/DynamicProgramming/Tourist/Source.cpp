@@ -9,13 +9,13 @@ using namespace std;
 
 char	terrain[maxDimensions][maxDimensions];
 int		maxVisitablePlaces[maxDimensions][maxDimensions][maxDimensions];
-int		rows, cols;
+int		maxDimension, cols;
 
 typedef pair<int, int> position;
 #define row first
 #define col second
 
-inline bool isInMap(int row, int col) { return row >= 0 && col >= 0 && row < rows && col < cols; }
+inline bool isInMap(int row, int col) { return row >= 0 && col >= 0 && row < maxDimension && col < cols; }
 inline bool isInMap(position p) { return isInMap(p.row, p.col); }
 inline char at(position p) { return terrain[p.row][p.col]; }
 
@@ -61,9 +61,9 @@ int main()
 
 	while(tests--)
 	{
-		scanf("%d %d", &cols, &rows);
+		scanf("%d %d", &cols, &maxDimension);
 		memset(maxVisitablePlaces, -1, sizeof maxVisitablePlaces);
-		for(auto row  = 0; row < rows; row++)
+		for(auto row  = 0; row < maxDimension; row++)
 			scanf("%s", &terrain[row]);
 
 		printf("%d\n", calculateMaxVisitablePositionsFrom({ 0,0 }, 0));

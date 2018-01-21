@@ -24,11 +24,11 @@ struct state
 	state(int row, int col, facing facing) { this->row = row; this->col = col; this->facingDirection = facing; }
 };
 
-int		rows, cols;
+int		maxDimension, cols;
 char	terrain[maxDimensions][maxDimensions];
 int		maxCuttableTreesAtState[maxDimensions][maxDimensions][facingDirections];
 
-inline bool isInMap(state state) { return state.row >= 0 && state.col >= 0 && state.row < rows && state.col < cols; }
+inline bool isInMap(state state) { return state.row >= 0 && state.col >= 0 && state.row < maxDimension && state.col < cols; }
 
 int computeMaxCuttableTreesFrom(state current) 
 {
@@ -60,10 +60,10 @@ int main()
 
 	while(tests--)
 	{
-		scanf("%d %d", &rows, &cols);
+		scanf("%d %d", &maxDimension, &cols);
 		memset(maxCuttableTreesAtState, -1, sizeof maxCuttableTreesAtState);
 
-		for (auto row = 0; row < rows; row++)
+		for (auto row = 0; row < maxDimension; row++)
 			scanf("%s", &terrain[row]);
 
 		printf("%d\n", computeMaxCuttableTreesFrom(state(0, 0, facing::right)));

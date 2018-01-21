@@ -13,7 +13,7 @@ enum target_mineral
 	blo = 1
 };
 
-int rows, cols;
+int maxDimension, cols;
 
 int yeyenum[maxSize][maxSize];
 int bloggium[maxSize][maxSize];
@@ -22,7 +22,7 @@ int maxYeyenumUpto[maxSize][maxSize];
 int maxBloggiumUpto[maxSize][maxSize];
 int maxCollectableMinerals[maxSize][maxSize];
 
-inline bool isInMap(int row, int col) { return row >= 0 && col >= 0 && row < rows && col < cols; }
+inline bool isInMap(int row, int col) { return row >= 0 && col >= 0 && row < maxDimension && col < cols; }
 
 int calculateMaxCollectableMinerals(int row, int col)
 {
@@ -41,10 +41,10 @@ int calculateMaxCollectableMinerals(int row, int col)
 int main()
 {
 
-	while(scanf("%d %d", &rows, &cols) && !(rows == 0 && cols == 0))
+	while(scanf("%d %d", &maxDimension, &cols) && !(maxDimension == 0 && cols == 0))
 	{
 		memset(maxCollectableMinerals, false, sizeof maxCollectableMinerals);
-		for (auto row = 0; row < rows; row++)
+		for (auto row = 0; row < maxDimension; row++)
 		{
 			for (auto col = 0; col < cols; col++)
 			{
@@ -57,7 +57,7 @@ int main()
 			}
 		}
 
-		for (auto row = 0; row < rows; row++)
+		for (auto row = 0; row < maxDimension; row++)
 		{
 			for (auto col = 0; col < cols; col++)
 			{
@@ -70,7 +70,7 @@ int main()
 			}
 		}
 
-		printf("%d\n", calculateMaxCollectableMinerals(rows - 1, cols - 1));
+		printf("%d\n", calculateMaxCollectableMinerals(maxDimension - 1, cols - 1));
 	}
 	return 0;
 }

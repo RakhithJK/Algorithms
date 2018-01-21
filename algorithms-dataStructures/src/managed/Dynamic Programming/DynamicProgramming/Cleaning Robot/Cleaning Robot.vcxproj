@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{16F778EF-9616-431F-960E-FFA77E7A765B}</ProjectGuid>
-    <RootNamespace>Lineup</RootNamespace>
+    <ProjectGuid>{1926F241-87C9-4D48-96C9-F75712ACE6A6}</ProjectGuid>
+    <RootNamespace>CleaningRobot</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
