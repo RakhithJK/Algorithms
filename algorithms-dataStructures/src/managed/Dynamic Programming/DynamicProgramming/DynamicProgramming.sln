@@ -145,6 +145,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelpBob", "HelpBob\HelpBob.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Baby", "Baby\Baby.vcxproj", "{A63787B2-FD69-419D-9CCC-6896FACCC686}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cater", "Cater\Cater.vcxproj", "{ACA61355-96D3-4023-8D71-D85808B6C06A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -617,6 +619,14 @@ Global
 		{A63787B2-FD69-419D-9CCC-6896FACCC686}.Release|x64.Build.0 = Release|x64
 		{A63787B2-FD69-419D-9CCC-6896FACCC686}.Release|x86.ActiveCfg = Release|Win32
 		{A63787B2-FD69-419D-9CCC-6896FACCC686}.Release|x86.Build.0 = Release|Win32
+		{ACA61355-96D3-4023-8D71-D85808B6C06A}.Debug|x64.ActiveCfg = Debug|x64
+		{ACA61355-96D3-4023-8D71-D85808B6C06A}.Debug|x64.Build.0 = Debug|x64
+		{ACA61355-96D3-4023-8D71-D85808B6C06A}.Debug|x86.ActiveCfg = Debug|Win32
+		{ACA61355-96D3-4023-8D71-D85808B6C06A}.Debug|x86.Build.0 = Debug|Win32
+		{ACA61355-96D3-4023-8D71-D85808B6C06A}.Release|x64.ActiveCfg = Release|x64
+		{ACA61355-96D3-4023-8D71-D85808B6C06A}.Release|x64.Build.0 = Release|x64
+		{ACA61355-96D3-4023-8D71-D85808B6C06A}.Release|x86.ActiveCfg = Release|Win32
+		{ACA61355-96D3-4023-8D71-D85808B6C06A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
