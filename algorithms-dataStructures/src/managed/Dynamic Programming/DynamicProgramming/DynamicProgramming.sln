@@ -147,6 +147,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Baby", "Baby\Baby.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cater", "Cater\Cater.vcxproj", "{ACA61355-96D3-4023-8D71-D85808B6C06A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Deliver Pizza", "Deliver Pizza\Deliver Pizza.vcxproj", "{9E97EF3C-CE71-4CEC-B98C-AB8E5E29F590}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -627,6 +629,14 @@ Global
 		{ACA61355-96D3-4023-8D71-D85808B6C06A}.Release|x64.Build.0 = Release|x64
 		{ACA61355-96D3-4023-8D71-D85808B6C06A}.Release|x86.ActiveCfg = Release|Win32
 		{ACA61355-96D3-4023-8D71-D85808B6C06A}.Release|x86.Build.0 = Release|Win32
+		{9E97EF3C-CE71-4CEC-B98C-AB8E5E29F590}.Debug|x64.ActiveCfg = Debug|x64
+		{9E97EF3C-CE71-4CEC-B98C-AB8E5E29F590}.Debug|x64.Build.0 = Debug|x64
+		{9E97EF3C-CE71-4CEC-B98C-AB8E5E29F590}.Debug|x86.ActiveCfg = Debug|Win32
+		{9E97EF3C-CE71-4CEC-B98C-AB8E5E29F590}.Debug|x86.Build.0 = Debug|Win32
+		{9E97EF3C-CE71-4CEC-B98C-AB8E5E29F590}.Release|x64.ActiveCfg = Release|x64
+		{9E97EF3C-CE71-4CEC-B98C-AB8E5E29F590}.Release|x64.Build.0 = Release|x64
+		{9E97EF3C-CE71-4CEC-B98C-AB8E5E29F590}.Release|x86.ActiveCfg = Release|Win32
+		{9E97EF3C-CE71-4CEC-B98C-AB8E5E29F590}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -668,6 +678,7 @@ Global
 		{1C8A7A66-F8D7-4457-806A-E134FD37D250} = {46B53639-9325-427E-B392-C2B6FED7B6C1}
 		{EAB8E442-5AD2-4112-AFC4-9DFBCF4E60AC} = {BDB5C21D-A4F3-4F3F-B624-74258792DFF0}
 		{A63787B2-FD69-419D-9CCC-6896FACCC686} = {BDB5C21D-A4F3-4F3F-B624-74258792DFF0}
+		{9E97EF3C-CE71-4CEC-B98C-AB8E5E29F590} = {BDB5C21D-A4F3-4F3F-B624-74258792DFF0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {484ADCE3-4A3C-4A97-BD09-DDE38EBC6004}
